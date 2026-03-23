@@ -74,11 +74,7 @@ function SheetContent({
             className="absolute right-8 top-8 transition-opacity outline-none"
             asChild
           >
-            <Button
-              variant="ghost"
-              className="absolute top-3 right-3"
-              size="icon-sm"
-            >
+            <Button className="absolute top-3 right-3">
               <IoMdClose className="text-3xl text-accent" />
               <span className="sr-only">Close</span>
             </Button>

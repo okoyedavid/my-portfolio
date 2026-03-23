@@ -1,49 +1,109 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+
 const Photo = () => {
   return (
-    <div className="w-full h-full">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          transition: { delay: 2.4, duration: 0.4, ease: "easeInOut" },
-        }}
-      >
-        <div className="mix-blend-light absolute w-74.5 h-74.5 xl:w-124.5 xl:h-124.5">
-          <Image
-            src="/david.png"
-            alt="photo"
-            priority
-            quality={100}
-            fill
-            className="rounded-full w-80 h-80 object-contain"
-          />
-        </div>
-      </motion.div>
-
+    <div className="w-100 h-100 flex items-center justify-center">
       <motion.svg
-        className={"w-75 xl:w-126.5 h-75 z-10 relative xl:h-126.5 "}
-        fill="transparent"
-        viewBox={"0 0 506 506"}
-        xmlns={"http://www.w3.org/2000/svg"}
+        className="w-75 h-75 xl:w-126.5 xl:h-126.5"
+        viewBox="0 0 506 506"
+        fill="none"
       >
+        {/* base faint ring */}
+        <circle
+          cx="253"
+          cy="253"
+          r="240"
+          stroke="#f59e0b"
+          strokeWidth="14"
+          opacity="0.15"
+        />
+
+        {/* glow layer (fake thickness) */}
         <motion.circle
           cx="253"
           cy="253"
           r="240"
-          stroke="#00ff99"
-          strokeWidth="4"
-          strokeLinecap={"round"}
-          strokeLinejoin={"round"}
-          initial={{ strokeDasharray: "24 10 0 0 " }}
+          stroke="#f59e0b"
+          strokeWidth="20"
+          strokeLinecap="round"
+          strokeDasharray="120 1500"
+          opacity="0.08"
           animate={{
-            strokeDasharray: ["15 120 25 25", "16 25 92 72", "4 250 22 22"],
-            rotate: [120, 360],
+            strokeDashoffset: [0, -400, -900],
+            rotate: [0, 10, -5, 360],
           }}
-          transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{ transformOrigin: "253px 253px" }}
+        />
+
+        {/* main arc */}
+        <motion.circle
+          cx="253"
+          cy="253"
+          r="240"
+          stroke="#f59e0b"
+          strokeWidth="23"
+          strokeLinecap="round"
+          strokeDasharray="110 1500"
+          animate={{
+            strokeDashoffset: [0, -300, -800],
+            rotate: [0, 20, 360],
+          }}
+          transition={{
+            duration: 2.8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{ transformOrigin: "253px 253px" }}
+        />
+
+        {/* small trailing arc (adds “shift”) */}
+        <motion.circle
+          cx="253"
+          cy="253"
+          r="240"
+          stroke="#f59e0b"
+          strokeWidth="23"
+          strokeLinecap="round"
+          strokeDasharray="40 1500"
+          opacity="0.8"
+          animate={{
+            strokeDashoffset: [200, -200, -600],
+            rotate: [180, 400],
+          }}
+          transition={{
+            duration: 3.6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{ transformOrigin: "253px 253px" }}
+        />
+
+        {/* center pulse */}
+        <motion.circle
+          cx="253"
+          cy="253"
+          r="7"
+          fill="#f59e0b"
+          strokeWidth="23"
+          strokeLinecap="round"
+          strokeDasharray="110 1500"
+          animate={{
+            scale: [0.9, 1.15, 0.9],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 1.2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{ transformOrigin: "253px 253px" }}
         />
       </motion.svg>
     </div>

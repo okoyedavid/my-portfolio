@@ -1,24 +1,7 @@
 "use client";
-import CountUp from "react-countup";
 
-const stats = [
-  {
-    num: 5,
-    text: "Years of Experience",
-  },
-  {
-    num: 30,
-    text: "Projects Completed",
-  },
-  {
-    num: 8,
-    text: "Technologies Mastered",
-  },
-  {
-    num: 500,
-    text: "Code Commits",
-  },
-];
+import CountUp from "react-countup";
+import { stats } from "@/lib/site-data";
 
 const Stats = () => {
   return (
@@ -28,14 +11,17 @@ const Stats = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="flex-1 flex gap-4 items-center justify-center xl:justify-start"
+              className="flex-1 flex gap-1 items-center justify-center xl:justify-start"
             >
               <CountUp
                 end={stat.num}
                 duration={5}
                 delay={2}
-                className="text-4xl xl:text-6xl  font-extrabold"
+                className="text-4xl xl:text-6xl font-extrabold"
               />
+              <span className="text-4xl xl:text-6xl font-extrabold">
+                {stat.suffix ?? ""}
+              </span>
               <p
                 className={`${stat.text.length < 15 ? "max-w-25" : "max-w-37.5"} leading-snug text-white/80`}
               >

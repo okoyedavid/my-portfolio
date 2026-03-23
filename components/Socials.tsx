@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaYoutube, FaTwitter } from "react-icons/fa";
+import { FiExternalLink, FiGithub, FiMail } from "react-icons/fi";
+import { siteConfig } from "@/lib/site-data";
 
 type Props = {
   containerStyles: string;
@@ -7,18 +8,24 @@ type Props = {
 };
 
 const socials = [
-  { icon: <FaGithub />, path: "" },
-  { icon: <FaLinkedin />, path: "" },
-  { icon: <FaYoutube />, path: "" },
-  { icon: <FaTwitter />, path: "" },
+  { icon: <FiGithub />, path: siteConfig.github, label: "GitHub" },
+  { icon: <FiExternalLink />, path: siteConfig.website, label: "Website" },
+  { icon: <FiMail />, path: `mailto:${siteConfig.email}`, label: "Email" },
 ];
 
 const Socials = ({ containerStyles, iconStyles }: Props) => {
   return (
     <div className={containerStyles}>
       {socials.map((social, index) => (
-        <Link href={social.path} key={index} className={iconStyles}>
-          {social.icon}{" "}
+        <Link
+          href={social.path}
+          key={index}
+          className={iconStyles}
+          aria-label={social.label}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {social.icon}
         </Link>
       ))}
     </div>

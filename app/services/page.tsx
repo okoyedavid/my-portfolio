@@ -1,39 +1,9 @@
 "use client";
 
-import { BsArrowDownRight } from "react-icons/bs";
-import Link from "next/link";
+import { serviceItems } from "@/lib/site-data";
 import { motion } from "framer-motion";
-
-const services = [
-  {
-    num: "01",
-    title: "Web Development",
-    href: "",
-    description:
-      " Lorem ipsum, adipisicing elit. Odio, expedita. Laudantium esse necessitatibus maiores! Deleniti modi totam facilis cumque! Nisi incidunt quia quos unde ipsam dolores modi quasi! Quas, pariatur.",
-  },
-  {
-    num: "02",
-    title: "UI/UX Design",
-    href: "",
-    description:
-      " Lorem ipsum, adipisicing elit. Odio, expedita. Laudantium esse necessitatibus maiores! Deleniti modi totam facilis cumque! Nisi incidunt quia quos unde ipsam dolores modi quasi! Quas, pariatur.",
-  },
-  {
-    num: "03",
-    title: "App Development",
-    href: "",
-    description:
-      " Lorem ipsum, adipisicing elit. Odio, expedita. Laudantium esse necessitatibus maiores! Deleniti modi totam facilis cumque! Nisi incidunt quia quos unde ipsam dolores modi quasi! Quas, pariatur.",
-  },
-  {
-    num: "04",
-    title: "SEO",
-    href: "",
-    description:
-      " Lorem ipsum, adipisicing elit. Odio, expedita. Laudantium esse necessitatibus maiores! Deleniti modi totam facilis cumque! Nisi incidunt quia quos unde ipsam dolores modi quasi! Quas, pariatur.",
-  },
-];
+import Link from "next/link";
+import { BsArrowDownRight } from "react-icons/bs";
 
 const Services = () => {
   return (
@@ -47,7 +17,7 @@ const Services = () => {
           }}
           className="grid grid-cols-1 md:grid-cols-2 gap-15"
         >
-          {services.map((services, index) => {
+          {serviceItems.map((services, index) => {
             return (
               <div
                 key={index}
@@ -58,7 +28,7 @@ const Services = () => {
                     {services.num}
                   </div>
                   <Link
-                    href={services.href}
+                    href={""}
                     className="flex justify-center items-center hover:-rotate-90 w-17.5 h-17.5 rounded-full bg-white group-hover:bg-accent transiton-all duration-500"
                   >
                     <BsArrowDownRight className="text-primary text-3xl" />{" "}
