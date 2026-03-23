@@ -9,10 +9,12 @@ import { siteConfig } from "@/lib/site-data";
 const Home = () => {
   return (
     <section className="h-full">
-      <div className="container mx-auto">
+      <div className="max-w-6xl mx-auto px-3.5 md:px-6">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="order-2 xl:order-0 text-center xl:text-left">
-            <span className="text-xl text-accent">{siteConfig.role}</span>
+            <span className="text-sm md:text-xl text-accent">
+              {siteConfig.role}
+            </span>
             <h1 className="h1 mt-4">
               Building
               <br />
@@ -46,7 +48,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="order-1 xl:order-none mb-8 xl:mb-0">
+          <div className="order-1 xl:order-0 mb-8 xl:mb-0">
             <Photo />
           </div>
         </div>

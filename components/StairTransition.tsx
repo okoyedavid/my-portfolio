@@ -8,7 +8,7 @@ const StairTransition = () => {
   return (
     <AnimatePresence mode="wait">
       <div key={pathname}>
-        <div className="h-screen w-screen fixed top-0 left-0 right-0 pointer-events-none z-40 flex">
+        <div className="fixed top-0 left-0 right-0 z-40 flex h-screen w-screen flex-col pointer-events-none md:flex-row">
           <Stairs />
         </div>
         <motion.div

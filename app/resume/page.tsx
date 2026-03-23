@@ -77,7 +77,7 @@ const Resume = () => {
       }}
       className="min-h-[80vh] flex items-center justify-center py-12 xl:py-8"
     >
-      <div className="container mx-auto">
+      <div className="max-w-6xl mx-auto px-3.5 md:px-6">
         <Tabs
           defaultValue="experience"
           className="flex flex-col xl:flex-row gap-15"

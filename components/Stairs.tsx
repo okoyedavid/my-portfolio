@@ -1,32 +1,59 @@
+"use client";
+
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-const stairAnimation = {
-  initial: {
-    top: "0%",
-  },
-  animate: {
-    top: "100%",
-  },
-  exit: {
-    top: ["100%", "0%"],
-  },
-};
+const DESKTOP_STEPS = 6;
+const MOBILE_STEPS = 4;
+const MOBILE_BREAKPOINT = 768;
 
-// calculate the reverse index for staggered delay
-const reverseIndex = (index: number): number => {
-  const totalSteps = 6;
+const createStairAnimation = (isMobile: boolean) => ({
+  initial: isMobile
+    ? {
+        left: "0%",
+      }
+    : {
+        top: "0%",
+      },
+  animate: isMobile
+    ? {
+        left: "100%",
+      }
+    : {
+        top: "100%",
+      },
+  exit: isMobile
+    ? {
+        left: ["100%", "0%"],
+      }
+    : {
+        top: ["100%", "0%"],
+      },
+});
+
+const reverseIndex = (index: number, totalSteps: number): number => {
   return totalSteps - index - 1;
 };
 
 const Stairs = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
+    const updateViewport = () => setIsMobile(mediaQuery.matches);
+
+    updateViewport();
+    mediaQuery.addEventListener("change", updateViewport);
+
+    return () => mediaQuery.removeEventListener("change", updateViewport);
+  }, []);
+
+  const totalSteps = isMobile ? MOBILE_STEPS : DESKTOP_STEPS;
+  const stairAnimation = createStairAnimation(isMobile);
+
   return (
     <>
-      {/* Render 6 motion divs each representing a step of the stairs
-  each div will ahve the same animation defined by the stairs animation object 
-  the delay for each div is calculated based on its reversed index created a staggered effect decreasing delay for each subsequent step
-  */}
-
-      {[...Array(6)].map((_, index) => {
+      {[...Array(totalSteps)].map((_, index) => {
         return (
           <motion.div
             key={index}
@@ -37,9 +64,9 @@ const Stairs = () => {
             transition={{
               duration: 0.4,
               ease: "easeInOut",
-              delay: reverseIndex(index) * 0.1, // staggered delay based on reverse index
+              delay: reverseIndex(index, totalSteps) * 0.1,
             }}
-            className="h-full w-full bg-white relative"
+            className="relative flex-1 bg-white"
           ></motion.div>
         );
       })}

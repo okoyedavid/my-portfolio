@@ -25,7 +25,7 @@ const Contact = () => {
       }}
       className="py-6"
     >
-      <div className="container mx-auto">
+      <div className="max-w-6xl mx-auto px-3.5 md:px-6">
         <div className="grid gap-7 xl:grid-cols-[1.1fr_0.9fr]">
           <div className="rounded-xl bg-[#27272c] p-10">
             <h3 className="text-4xl text-accent">Let&apos;s work together</h3>

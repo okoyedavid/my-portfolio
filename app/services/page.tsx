@@ -8,7 +8,7 @@ import { BsArrowDownRight } from "react-icons/bs";
 const Services = () => {
   return (
     <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-8">
-      <div className="container mx-auto">
+      <div className="max-w-6xl mx-auto px-3.5 md:px-6">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{
