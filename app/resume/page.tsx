@@ -17,8 +17,13 @@ import {
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowDownRight } from "react-icons/bs";
-import { FaCss3, FaHtml5, FaJs, FaNodeJs, FaReact } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
+import { FaCss3, FaHtml5, FaNodeJs, FaReact } from "react-icons/fa";
+import {
+  SiExpress,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 
 const about = {
   title: "About Me",
@@ -48,22 +53,23 @@ const experience = {
 const education = {
   title: "Education & Certificates",
   description:
-    "A computer science foundation supported by practical frontend certifications.",
+    "A computer science foundation supported by practical web development certifications.",
   items: educationItems,
 };
 
 const skills = {
   title: "Core Skills",
   description:
-    "Technologies and delivery strengths directly reflected in the resume and current portfolio.",
+    "Technologies and product engineering strengths reflected in the current portfolio.",
   skillList: [
     { icon: <FaHtml5 />, name: "HTML5" },
     { icon: <FaCss3 />, name: "CSS3" },
-    { icon: <FaJs />, name: "JavaScript" },
+    { icon: <SiTypescript />, name: "TypeScript" },
     { icon: <FaReact />, name: "React" },
     { icon: <SiNextdotjs />, name: "Next.js" },
     { icon: <SiTailwindcss />, name: "Tailwind CSS" },
     { icon: <FaNodeJs />, name: "Node.js" },
+    { icon: <SiExpress />, name: "Express.js" },
   ],
 };
 
@@ -209,7 +215,7 @@ const Resume = () => {
             >
               <div className="flex flex-col gap-7">
                 <h3 className="text-4xl font-bold">{about.title}</h3>
-                <p className="max-w-150 text-white/60 mx-auto xl:mx-0">
+                <p className="text-white/60 mx-auto xl:mx-0">
                   {about.description}
                 </p>
 

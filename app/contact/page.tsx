@@ -31,10 +31,11 @@ const Contact = () => {
             <h3 className="text-4xl text-accent">Let&apos;s work together</h3>
 
             <p className="mt-6 text-white/60">
-              For frontend product work, interface refinement, or a Next.js
-              build that needs stronger structure and polish, direct contact is
-              the cleanest route. This page now uses real actions instead of a
-              non-functional demo form.
+              I&apos;m available for SaaS dashboards, full-stack TypeScript
+              builds, authentication and account systems, business workflow
+              tools, API integrations, and frontend-heavy product engineering.
+              Direct contact is the cleanest route for role conversations or
+              focused project work.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">

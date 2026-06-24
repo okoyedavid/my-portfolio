@@ -16,47 +16,12 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
-
-const projects = [
-  {
-    num: "01",
-    category: "frontend",
-    title: "Project 1",
-    description: " Lorem ipsum dolor sit, amet consectetur adipisicing",
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "JavaScript" }],
-    image: "/assets/work/thumb1.png",
-    live: "",
-    github: "",
-  },
-
-  {
-    num: "02",
-    category: "fullstack",
-    title: "Project 2",
-    description: " Lorem ipsum dolor sit, amet consectetur adipisicing",
-    stack: [{ name: "Next.js" }, { name: "Tailwind.css" }, { name: "Node.js" }],
-    image: "/assets/work/thumb2.png",
-    live: "",
-    github: "",
-  },
-  {
-    num: "03",
-    category: "frontend",
-    title: "Project 3",
-    description: " Lorem ipsum dolor sit, amet consectetur adipisicing",
-    stack: [
-      { name: "Next.js" },
-      { name: "Tailwindcss" },
-      { name: "JavaScript" },
-    ],
-    image: "/assets/work/thumb3.png",
-    live: "",
-    github: "",
-  },
-];
+import { projectItems as projects } from "@/lib/site-data";
 
 const Work = () => {
-  const [project, setProject] = useState(projects[0]);
+  const [project, setProject] = useState<(typeof projects)[number]>(
+    projects[0],
+  );
 
   const handleSlideChange = (swiper: SwiperType) => {
     const currentIndex = swiper.activeIndex;
@@ -84,18 +49,30 @@ const Work = () => {
               {/* Project Category */}
 
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize ">
-                {project.category} Project
+                {project.title}
               </h2>
 
               {/* Project Description */}
-              <p className="text-white/60">{project.description} </p>
+              <div>
+                <p className="text-sm uppercase tracking-wider text-accent">
+                  {project.category} / {project.status}
+                </p>
+                <p className="mt-3 text-white/60">{project.summary}</p>
+              </div>
 
-              <ul className="flex gap-4">
+              <ul className="grid gap-2 text-sm text-white/70">
+                {project.features.map((feature) => (
+                  <li key={feature} className="flex gap-2">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <ul className="flex flex-wrap gap-3">
                 {project.stack.map((item, index) => (
-                  <li className="text-xl text-accent" key={index}>
-                    {" "}
-                    {item.name}
-                    {/* Remove the last coma */}
+                  <li className="text-sm text-accent" key={item}>
+                    {item}
                     {index !== project.stack.length - 1 && ","}
                   </li>
                 ))}
@@ -104,32 +81,36 @@ const Work = () => {
               <div className="border border-white/20"> </div>
               <div className="flex items-center gap-4 ">
                 {/* Live Project Button*/}
-                <Link href={project.live}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="flex w-17.5 h-17.5 rounded-full bg-white/5 justify-center items-center group">
-                        <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Live Project</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {project.live && (
+                  <Link href={project.live} target="_blank" rel="noreferrer">
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="flex w-17.5 h-17.5 rounded-full bg-white/5 justify-center items-center group">
+                          <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Live Project</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
 
                 {/* github Project Button*/}
-                <Link href={project.github}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-17.5 h-17.5 rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>GitHub Repository</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {project.github && (
+                  <Link href={project.github} target="_blank" rel="noreferrer">
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-17.5 h-17.5 rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>GitHub Repository</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -150,10 +131,10 @@ const Work = () => {
                     {/* image */}
                     <div className="relative w-full h-full">
                       <Image
-                        src={project.image}
-                        alt=""
+                        src={item.image}
+                        alt={`${item.title} project screenshot`}
                         fill
-                        className="object-cover"
+                        className="object-cover object-top-left"
                       />
                     </div>
                   </div>
