@@ -234,17 +234,17 @@ export const projectItems = [
   },
   {
     num: "03",
-    category: "Education technology",
+    category: "E-commerce",
     title: "Aurela",
     status: "Portfolio project",
     summary:
-      "An academic management platform designed to simplify score sheet generation, result processing, and academic record workflows for educational institutions.",
+      "A fashion marketplace platform bringing independent shops and personal style together, with product discovery, shoppable video reels, and a considered editorial experience.",
     features: [
-      "Automated score sheet generation",
-      "Academic result processing workflows",
-      "Structured data handling for university grading systems",
-      "Product-focused dashboard interface",
-      "Responsive experience for managing academic records",
+      "Product marketplace with multi-category browsing",
+      "Shoppable video reels for styling and product discovery",
+      "Cart, checkout, and order tracking flows",
+      "Seller onboarding with listing terms and restrictions",
+      "Newsletter and editorial content system",
     ],
     stack: [
       "React",

@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
-import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 
@@ -17,8 +17,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 import WorkSliderBtns from "@/components/WorkSliderBtns";
 import { projectItems as projects } from "@/lib/site-data";
@@ -170,7 +170,7 @@ const Work = () => {
       {/* IMAGE DIALOG */}
 
       <Dialog open={openGallery} onOpenChange={setOpenGallery}>
-        <DialogContent className="w-[95vw] max-w-5xl bg-black/90 p-3 md:p-6">
+        <DialogContent className=" sm:max-w-5xl bg-black/90 p-3 md:p-6">
           <DialogTitle className="sr-only">
             {project.title} screenshots
           </DialogTitle>
