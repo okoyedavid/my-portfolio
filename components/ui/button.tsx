@@ -16,6 +16,7 @@ const buttonVariants = cva(
       },
       size: {
         default: "h-11 px-6",
+        sm: "h-auto w-auto",
         md: "h-12 px-6",
         lg: "h-14 px-8 text-sm uppercase tracking-[2px]",
       },
