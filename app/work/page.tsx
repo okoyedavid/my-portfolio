@@ -158,7 +158,7 @@ const Work = () => {
               ))}
 
               <WorkSliderBtns
-                containerStyles="flex gap-2 absolute border right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
+                containerStyles="flex gap-2 absolute  right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
                 btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-11 h-11 flex justify-center items-center transition-all duration-500"
                 iconStyles="text-primary"
               />
