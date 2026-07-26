@@ -53,7 +53,7 @@ const Work = () => {
                 {" "}
                 {project.num}
               </div>
-              <h2 className="text-3xl md:text-4xl xl:text-[42px] font-bold leading-none text-white capitalize break-words">
+              <h2 className="text-3xl md:text-4xl xl:text-[42px] font-bold leading-none text-white capitalize wrap-break-word">
                 {project.title}
               </h2>
 
@@ -62,7 +62,7 @@ const Work = () => {
                   {project.category} / {project.status}
                 </p>
 
-                <p className="mt-3 text-white/60 break-words">
+                <p className="mt-3 text-white/60 wrap-break-word">
                   {project.summary}
                 </p>
               </div>
