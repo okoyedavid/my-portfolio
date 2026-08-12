@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { educationItems, experienceItems, siteConfig, skills } from "@/lib/site-data";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FiDownload } from "react-icons/fi";
 
 export const metadata: Metadata = {
   title: "Résumé",
@@ -18,7 +19,11 @@ export default function Resume() {
           <h1 className="h2 mt-3">Experience and technical foundation.</h1>
           <p className="mt-5 text-white/70">{siteConfig.summary}</p>
         </div>
-        <Button asChild variant="outline" size="lg"><Link href="/contact">Contact Me</Link></Button>
+        <Button asChild size="lg">
+          <a href="/Resume.pdf" download>
+            Download Résumé PDF <FiDownload aria-hidden="true" />
+          </a>
+        </Button>
       </header>
 
       <section className="py-12" aria-labelledby="experience-title">

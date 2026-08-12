@@ -3,7 +3,7 @@
 import { siteConfig } from "@/lib/site-data";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import "./StaggeredMenu.css";
 
 const menuItems = [
@@ -25,6 +25,10 @@ export default function StaggeredMenu() {
 
   return (
     <div className="mobile-menu" data-open={open || undefined}>
+      <div className="mobile-menu__layers" aria-hidden="true">
+        <span />
+        <span />
+      </div>
       <div className="mobile-menu__bar">
         <Link href="/" className="rounded-sm text-3xl font-semibold" aria-label="David Okoye, home">David <span className="text-accent">.</span></Link>
         <button className="mobile-menu__toggle" type="button" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen((value) => !value)}>
@@ -34,8 +38,8 @@ export default function StaggeredMenu() {
       <div id="mobile-navigation" className="mobile-menu__panel" aria-hidden={!open} inert={!open}>
         <nav aria-label="Mobile navigation">
           <ul className="grid gap-2">
-            {menuItems.map((item) => (
-              <li key={item.href}><Link href={item.href} onClick={() => setOpen(false)} aria-current={pathname === item.href ? "page" : undefined} className="mobile-menu__link">{item.label}</Link></li>
+            {menuItems.map((item, index) => (
+              <li key={item.href} style={{ "--menu-index": index } as CSSProperties}><Link href={item.href} onClick={() => setOpen(false)} aria-current={pathname === item.href ? "page" : undefined} className="mobile-menu__link">{item.label}</Link></li>
             ))}
           </ul>
         </nav>

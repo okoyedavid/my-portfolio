@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const DESKTOP_STEPS = 6;
@@ -37,6 +37,7 @@ const reverseIndex = (index: number, totalSteps: number): number => {
 
 const Stairs = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
@@ -51,6 +52,8 @@ const Stairs = () => {
   const totalSteps = isMobile ? MOBILE_STEPS : DESKTOP_STEPS;
   const stairAnimation = createStairAnimation(isMobile);
 
+  if (reduceMotion) return null;
+
   return (
     <>
       {[...Array(totalSteps)].map((_, index) => {
@@ -62,9 +65,9 @@ const Stairs = () => {
             animate="animate"
             exit="exit"
             transition={{
-              duration: 0.4,
+              duration: 0.42,
               ease: "easeInOut",
-              delay: reverseIndex(index, totalSteps) * 0.1,
+              delay: reverseIndex(index, totalSteps) * 0.075,
             }}
             className="relative flex-1 bg-white"
           ></motion.div>
