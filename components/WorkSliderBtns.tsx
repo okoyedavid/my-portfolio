@@ -14,12 +14,12 @@ const WorkSliderBtns = ({ containerStyles, btnStyles, iconStyles }: Props) => {
 
   return (
     <div className={containerStyles}>
-      <button className={btnStyles} onClick={() => swiper.slidePrev()}>
-        <PiCaretLeftBold className={iconStyles} />
+      <button className={btnStyles} onClick={() => swiper.slidePrev()} aria-label="Previous screenshot" type="button">
+        <PiCaretLeftBold className={iconStyles} aria-hidden="true" />
       </button>
 
-      <button className={btnStyles} onClick={() => swiper.slideNext()}>
-        <PiCaretRightBold className={iconStyles} />
+      <button className={btnStyles} onClick={() => swiper.slideNext()} aria-label="Next screenshot" type="button">
+        <PiCaretRightBold className={iconStyles} aria-hidden="true" />
       </button>
     </div>
   );

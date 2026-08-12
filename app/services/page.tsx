@@ -1,55 +1,36 @@
-"use client";
-
 import { serviceItems } from "@/lib/site-data";
-import { motion } from "framer-motion";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { BsArrowDownRight } from "react-icons/bs";
 
-const Services = () => {
-  return (
-    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-8">
-      <div className="max-w-6xl mx-auto px-3.5 md:px-6">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
-          }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-15"
-        >
-          {serviceItems.map((services, index) => {
-            return (
-              <div
-                key={index}
-                className="flex-1 flex flex-col justify-center gap-6 group"
-              >
-                <div className="w-full flex justify-between items-center">
-                  <div className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">
-                    {services.num}
-                  </div>
-                  <Link
-                    href="/contact"
-                    aria-label={`Discuss ${services.title}`}
-                    className="flex justify-center items-center hover:-rotate-90 w-17.5 h-17.5 rounded-full bg-white group-hover:bg-accent transiton-all duration-500"
-                  >
-                    <BsArrowDownRight className="text-primary text-3xl" />{" "}
-                  </Link>
-                </div>
-
-                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
-                  {services.title}
-                </h2>
-
-                <p className="text-white/60">{services.description}</p>
-
-                <div className="border-b border-white/20 w-full"></div>
-              </div>
-            );
-          })}
-        </motion.div>
-      </div>
-    </section>
-  );
+export const metadata: Metadata = {
+  title: "Engineering Capabilities",
+  description: "Frontend and full-stack TypeScript capabilities spanning SaaS dashboards, authentication, RBAC, APIs and background workflows.",
+  alternates: { canonical: "/services" },
 };
 
-export default Services;
+export default function Services() {
+  return (
+    <main className="max-w-6xl mx-auto px-3.5 py-10 md:px-6 md:py-14">
+      <header className="max-w-3xl">
+        <p className="text-sm uppercase tracking-[0.14em] text-accent">Engineering capabilities</p>
+        <h1 className="h2 mt-3">How I contribute to product teams.</h1>
+        <p className="mt-5 text-white/70">Concrete frontend and TypeScript capabilities I can bring to an engineering role.</p>
+      </header>
+      <div className="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
+        {serviceItems.map((service) => (
+          <article key={service.num} className="group border-b border-white/15 pb-8">
+            <div className="flex items-start justify-between gap-5">
+              <span className="text-4xl font-extrabold text-transparent text-outline" aria-hidden="true">{service.num}</span>
+              <Link href="/contact" aria-label={`Contact David about ${service.title}`} className="flex size-12 shrink-0 items-center justify-center rounded-full bg-white text-primary transition-colors hover:bg-accent">
+                <BsArrowDownRight className="text-2xl" aria-hidden="true" />
+              </Link>
+            </div>
+            <h2 className="mt-5 text-2xl font-bold leading-tight transition-colors group-hover:text-accent md:text-3xl">{service.title}</h2>
+            <p className="mt-4 text-white/70">{service.description}</p>
+          </article>
+        ))}
+      </div>
+    </main>
+  );
+}

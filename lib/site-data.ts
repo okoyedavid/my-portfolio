@@ -1,92 +1,73 @@
 export const siteConfig = {
   name: "David Okoye",
   firstName: "David",
-  role: "Full-Stack TypeScript Developer building SaaS dashboards, authentication systems, and business workflow tools.",
-  shortRole: "Full-Stack TypeScript Developer",
+  role: "Frontend-Heavy Full-Stack TypeScript Developer",
+  shortRole: "Frontend-Heavy Full-Stack TypeScript Developer",
   email: "okoyedav7@gmail.com",
+  emailHref: "mailto:okoyedav7@gmail.com",
   phone: "(+234) 916 380 8118",
   location: "Abuja, Nigeria",
-  website: "https://okoye-david.vercel.app",
+  website: "https://okoyedavid.com",
   github: "https://github.com/okoyedavid",
-  resume: "/Resume.pdf",
+  linkedin: "https://www.linkedin.com/in/okoyedavid7",
+  resume: "/resume",
   summary:
-    "Frontend-heavy full-stack TypeScript developer with 3+ years of hands-on frontend experience and growing backend/product architecture depth through SaaS-style builds like Aurex. I build clean React and Next.js product interfaces, Node.js/Express APIs, authentication flows, RBAC, dashboard UIs, REST API integrations, and business workflow systems without overcomplicating the user experience.",
+    "Frontend-heavy full-stack TypeScript developer with hands-on experience building React and Next.js interfaces, Node.js APIs, secure account systems, multi-tenant authorization and asynchronous business workflows.",
   seoDescription:
-    "Portfolio of David Okoye, a frontend-heavy full-stack TypeScript developer focused on React, Next.js, Node.js, SaaS dashboards, authentication systems, RBAC, API integrations, and product engineering.",
+    "Portfolio of David Okoye, a frontend-heavy full-stack TypeScript developer building React, Next.js and Node.js applications, secure account systems, multi-tenant APIs and SaaS workflows.",
   keywords: [
     "David Okoye",
-    "Full-Stack TypeScript Developer",
-    "Frontend-heavy Full-Stack Developer",
-    "React Node.js Developer",
-    "SaaS Dashboard Developer",
-    "Product Engineer",
-    "Next.js Developer",
+    "Frontend-Heavy Full-Stack TypeScript Developer",
     "React Developer",
+    "Next.js Developer",
     "TypeScript Developer",
     "Node.js Developer",
-    "Authentication Systems",
-    "RBAC",
-    "Portfolio",
-    "Nigeria Developer",
+    "SaaS Dashboard Developer",
+    "Authentication",
+    "Multi-tenant RBAC",
+    "REST APIs",
   ],
 } as const;
 
-export const stats: Array<{ num: number; text: string; suffix?: string }> = [
-  { num: 3, suffix: "+", text: "Years of Experience" },
-  { num: 3, text: "Hands-on Roles" },
-  { num: 2, text: "Certifications" },
-  { num: 6, text: "Core Delivery Areas" },
-];
+export const coreEngineeringAreas = [
+  "SaaS dashboards",
+  "Authentication and sessions",
+  "Multi-tenant RBAC",
+  "REST API development",
+  "Background jobs and retries",
+  "Responsive product interfaces",
+] as const;
 
 export const experienceItems = [
   {
-    company: "Various Projects",
+    company: "Various projects",
     position: "Freelance Frontend / TypeScript Developer",
-    duration: "2022 - Present",
-    summary:
-      "Delivered responsive React and Next.js interfaces, API-connected product flows, dashboard screens, and production-minded frontend features for client and portfolio work.",
-  },
-  {
-    company: "Aurex",
-    position: "Full-Stack TypeScript Product Build",
-    duration: "2025 - Present",
-    summary:
-      "Built a SaaS-style business platform with separate frontend and backend architecture, authentication, session handling, roles and permissions, workspace management, and payment workflow planning.",
+    duration: "2022 to present",
+    responsibilities: [
+      "Built responsive React and Next.js applications across SaaS, media, education, logistics and commerce.",
+      "Implemented API integrations, authentication interfaces, dashboards, state management and reusable product components.",
+      "Developed separate frontend and backend applications with TypeScript-based contracts and business workflows.",
+    ],
   },
   {
     company: "Raadaa Partners International",
-    position: "Frontend Developer (Industrial Training Internship)",
-    duration: "April 2024 - October 2024",
-    summary:
-      "Worked on frontend implementation and real-world product delivery during industrial training.",
+    position: "Frontend Developer, Industrial Training",
+    duration: "April 2024 to October 2024",
+    responsibilities: [
+      "Developed and maintained Next.js and TypeScript interfaces.",
+      "Integrated frontend applications with REST APIs.",
+      "Implemented loading, error and user-feedback states.",
+      "Wrote unit and integration tests with Jest.",
+      "Collaborated through Git and GitLab workflows.",
+    ],
   },
 ] as const;
 
 export const educationItems = [
   {
     institution: "Enugu State University, Nigeria",
-    href: null,
-    degree: "Bachelor of Science in Computer Science",
-    duration: "November 2022 - Present",
-  },
-  {
-    institution: "Government Secondary School Pyakasa, Abuja",
-    href: null,
-    degree: "Senior School Certificate (SSCE)",
-    duration: "October 2017 - November 2020",
-  },
-
-  {
-    institution: "Responsive Web Design",
-    degree: "freeCodeCamp",
-    duration: "June 17 2022",
-    href: "https://www.freecodecamp.org/certification/okoyedavid7/responsive-web-design",
-  },
-  {
-    institution: "JavaScript Algorithms and Data Structures",
-    degree: "freeCodeCamp",
-    duration: "December 18 2022",
-    href: "https://www.freecodecamp.org/certification/okoyedavid7/javascript-algorithms-and-data-structures",
+    degree: "B.Sc. Computer Science",
+    duration: "November 2022 to present",
   },
 ] as const;
 
@@ -95,103 +76,91 @@ export const skills = [
   "Next.js",
   "TypeScript",
   "Node.js",
-  "Express.js",
+  "Express",
+  "MongoDB",
   "REST APIs",
   "Tailwind CSS",
+  "TanStack Query",
   "Authentication",
-  "RBAC / Permissions",
-  "Dashboard UI",
-  "API Integration",
-  "Payment Workflow Integration",
-  "Responsive Product UX",
+  "RBAC and permissions",
+  "Vitest",
+  "Supertest",
 ] as const;
 
 export const serviceItems = [
   {
     num: "01",
-    title: "SaaS Dashboard Development",
+    title: "Frontend product development",
     description:
-      "React and Next.js dashboard interfaces for data-heavy product screens, admin tools, and business workflows.",
+      "Responsive React and Next.js interfaces with reusable components, clear application states and accessible interactions.",
   },
   {
     num: "02",
-    title: "Full-Stack Applications",
+    title: "SaaS dashboard development",
     description:
-      "Frontend-heavy TypeScript builds connected to Node.js/Express APIs, REST data flows, and maintainable product structure.",
+      "Data-rich dashboards and admin interfaces for teams, records, permissions and day-to-day business operations.",
   },
   {
     num: "03",
-    title: "Authentication & Account Systems",
+    title: "Full-stack TypeScript applications",
     description:
-      "Login, forgot-password, reset-password, account updates, session handling, and secure user-facing auth flows.",
+      "Separate Next.js frontends and Node.js/Express backends connected through typed, validated REST API contracts.",
   },
   {
     num: "04",
-    title: "API Integration & Payment Workflows",
+    title: "Authentication and account systems",
     description:
-      "Product flows that connect clean interfaces to external APIs, payment planning, and balance-funded transfer workflows.",
+      "Sign-in, verification, password recovery, protected routes and revocable session flows with practical security controls.",
   },
   {
     num: "05",
-    title: "Role-Based Access Control",
+    title: "Role-based access control",
     description:
-      "Permission-aware interfaces and workflows for teams, system roles, custom roles, and protected dashboard actions.",
+      "Multi-tenant authorization for system and custom roles, explicit permissions and guarded administrative actions.",
   },
   {
     num: "06",
-    title: "Frontend Performance & Product UX",
+    title: "API integration and background workflows",
     description:
-      "Responsive, polished product interfaces with clear states, reusable components, and practical interaction design.",
+      "Third-party API integrations and durable background work with persisted status, retry eligibility and failure handling.",
   },
-] as const;
-
-export const featuredProject = {
-  title: "Aurex",
-  subtitle: "SaaS-style business management platform",
-  duration: "Featured Project",
-  summary:
-    "Aurex is a full-stack TypeScript business management platform with separate frontend and backend architecture, authentication, workspace management, RBAC, employee payment records, and payment workflow planning.",
-  highlights: [
-    "Separate frontend and backend structure with TypeScript-focused implementation.",
-    "Authentication flows include forgot password, reset password, revocable sessions, refresh-token rotation, login metadata, and suspicious login alerts.",
-    "Business workflow coverage includes workspaces, team members, system/custom roles, employee payment records, and Paystack Balance-funded payout planning.",
-  ],
-} as const;
-
-export const deliveryAreas = [
-  "SaaS dashboards and admin portals",
-  "Authentication and account systems",
-  "RBAC and permission-aware workflows",
-  "API integrations and payment workflow UI",
 ] as const;
 
 export const projectItems = [
   {
     num: "01",
-    category: "Featured full-stack",
+    category: "Featured full-stack platform",
     title: "Aurex",
-    status: "Active portfolio build",
+    status: "Active build",
     summary:
-      "A full-stack SaaS-style business management platform with separate frontend and backend architecture for authentication, business/workspace management, roles, employee payment records, and payment workflow planning.",
+      "Aurex is a full-stack, multi-tenant business operations platform with separate frontend and backend applications. It includes authentication, persistent sessions, business workspaces, system and custom roles, team membership, employee records, invitation delivery, bank-account verification, notifications and audit trails.",
+    contribution:
+      "I designed and implemented the product interface, REST API, authentication and authorization model, MongoDB data workflows, and polling workers across separate TypeScript applications.",
     features: [
-      "Authentication with forgot-password and reset-password flows",
-      "Revocable session handling, refresh-token rotation, rate limiting, login metadata, and suspicious login alerts",
-      "User account updates for avatar, email, and password",
-      "Business/workspace creation, team members, system roles, and custom roles",
-      "Employee payment records with salary-style payout batch planning around Paystack Balance-funded transfers",
-      "Audit-friendly checks for unusual payment changes",
-      "Dashboard dark mode",
+      "Short-lived access tokens and rotating refresh sessions with individual session revocation",
+      "Suspicious-login monitoring",
+      "Multi-tenant RBAC with system and custom roles, explicit grants and denials, and privilege-escalation protection",
+      "Atomic MongoDB-backed job claiming for durable employee bank-account verification",
+      "Fixed worker polling with persisted per-job retry backoff",
+      "Invitation-email delivery using recursive timeouts, adaptive idle polling and jitter",
+      "Persistent retry state that survives process restarts",
+      "Rate limiting, Zod validation and security middleware",
+      "Vitest and Supertest coverage",
     ],
+    architecture:
+      "Aurex uses MongoDB-backed polling workers rather than an external queue service at its current scale. Jobs are claimed atomically, and status, attempt counts and retry eligibility are persisted so queued work can recover after a process restart.",
+    note:
+      "Payment permissions, employee records and workflow models are implemented. Payment execution is planned and remains under development.",
     stack: [
-      "React",
       "Next.js",
+      "React",
       "TypeScript",
       "Node.js",
-      "Express.js",
-      "REST APIs",
-      "Authentication",
-      "RBAC",
-      "Paystack-style workflow planning",
+      "Express",
+      "MongoDB",
+      "Zod",
+      "Vitest",
+      "Supertest",
     ],
     images: [
       "/assets/work/aurex.png",
@@ -199,29 +168,52 @@ export const projectItems = [
       "/assets/work/aurex3.png",
       "/assets/work/aurex4.png",
     ],
-    live: "https://aurex.okoyedavid.com",
-    github: "",
+    links: [
+      { label: "Open application", href: "https://aurex.okoyedavid.com" },
+      {
+        label: "API Status",
+        href: "https://api.aurex.okoyedavid.com/status",
+        hint: "Render free tier; a cold start may take a moment.",
+      },
+      {
+        label: "Frontend source",
+        href: "https://github.com/okoyedavid/Aurex",
+      },
+      {
+        label: "Backend source",
+        href: "https://github.com/okoyedavid/aurex-backend",
+      },
+    ],
   },
   {
     num: "02",
-    category: "Media product",
+    category: "Media discovery platform",
     title: "Animex",
-    status: "Portfolio project",
+    status: "Completed portfolio project",
     summary:
-      "An anime-focused product interface for browsing, discovering, and interacting with anime content through a clean responsive UI.",
+      "Animex is an anime discovery platform combining public Jikan API data with authentication, account management, protected routes and browser-based watchlists.",
+    contribution:
+      "I built the responsive discovery interface, server-backed account flows, protected dashboard, API integration and client-side request caching.",
     features: [
-      "Anime browsing and discovery experience",
-      "Search-focused navigation",
-      "Top-rated anime presentation using Jikan-powered content",
-      "Watchlist navigation visible in the product UI",
-      "Responsive media-first interface with loading-ready content sections",
+      "Search and content discovery with detailed anime information",
+      "Guest watchlists",
+      "Email verification plus Google and GitHub authentication",
+      "Protected dashboard with profile and session management",
+      "Cached requests with TanStack Query",
+      "Responsive loading and error states",
     ],
+    architecture: null,
+    note: null,
     stack: [
-      "React",
       "Next.js",
+      "React",
       "TypeScript",
-      "API Integration",
-      "Responsive UI",
+      "Tailwind CSS",
+      "TanStack Query",
+      "Axios",
+      "Node.js",
+      "Express",
+      "MongoDB",
     ],
     images: [
       "/assets/work/animex.png",
@@ -229,55 +221,45 @@ export const projectItems = [
       "/assets/work/animex3.png",
       "/assets/work/animex4.png",
     ],
-    live: "https://animex.okoyedavid.com",
-    github: "",
+    links: [
+      { label: "Open application", href: "https://animex.okoyedavid.com" },
+      {
+        label: "Frontend source",
+        href: "https://github.com/okoyedavid/animex",
+      },
+      {
+        label: "Backend source",
+        href: "https://github.com/okoyedavid/animex-backend",
+      },
+    ],
   },
   {
     num: "03",
-    category: "E-commerce",
+    category: "Fashion commerce interface",
     title: "Aurela",
-    status: "Portfolio project",
+    status: "Completed portfolio project",
     summary:
-      "A fashion marketplace platform bringing independent shops and personal style together, with product discovery, shoppable video reels, and a considered editorial experience.",
+      "Aurela is a responsive fashion-commerce experience focused on product discovery, editorial presentation and modern marketplace interactions.",
+    contribution:
+      "I built the responsive interface and component architecture, shaping the product presentation and interaction design across browsing and commerce flows.",
     features: [
-      "Product marketplace with multi-category browsing",
-      "Shoppable video reels for styling and product discovery",
-      "Cart, checkout, and order tracking flows",
-      "Seller onboarding with listing terms and restrictions",
-      "Newsletter and editorial content system",
+      "Responsive product discovery and category browsing",
+      "Reusable component architecture",
+      "Editorial product presentation",
+      "Marketplace-focused interaction design",
     ],
-    stack: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Database Management",
-      "Product UI",
-    ],
+    architecture: null,
+    note: null,
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     images: [
       "/assets/work/aurela.png",
       "/assets/work/aurela2.png",
       "/assets/work/aurela3.png",
       "/assets/work/aurela4.png",
     ],
-    live: "https://aurela.okoyedavid.com",
-    github: "",
-  },
-  {
-    num: "04",
-    category: "Productivity app",
-    title: "Zentry Task Manager",
-    status: "Portfolio project",
-    summary:
-      "A task management application focused on organizing work and managing tasks through a clean dashboard-style product interface.",
-    features: [
-      "Authentication screens for sign-in and account creation",
-      "Dashboard-style task management direction",
-      "Clean product UX with a focused dark interface",
-      "Reusable frontend structure and responsive layout direction",
+    links: [
+      { label: "Open application", href: "https://aurela.okoyedavid.com" },
+      { label: "View source", href: "https://github.com/okoyedavid/Aurela" },
     ],
-    stack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Product UI"],
-    images: ["/assets/work/zentry.png"],
-    live: "",
-    github: "",
   },
 ] as const;

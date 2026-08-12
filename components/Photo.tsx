@@ -1,10 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const Photo = () => {
+  const reduceMotion = useReducedMotion();
   return (
-    <div className="w-100 h-100 flex items-center justify-center">
+    <div className="aspect-square w-full max-w-100 flex items-center justify-center">
       <motion.svg
         className="w-75 h-75 xl:w-126.5 xl:h-126.5"
         viewBox="0 0 506 506"
@@ -30,7 +31,7 @@ const Photo = () => {
           strokeLinecap="round"
           strokeDasharray="120 1500"
           opacity="0.08"
-          animate={{
+          animate={reduceMotion ? undefined : {
             strokeDashoffset: [0, -400, -900],
             rotate: [0, 10, -5, 360],
           }}
@@ -51,7 +52,7 @@ const Photo = () => {
           strokeWidth="23"
           strokeLinecap="round"
           strokeDasharray="110 1500"
-          animate={{
+          animate={reduceMotion ? undefined : {
             strokeDashoffset: [0, -300, -800],
             rotate: [0, 20, 360],
           }}
@@ -73,7 +74,7 @@ const Photo = () => {
           strokeLinecap="round"
           strokeDasharray="40 1500"
           opacity="0.8"
-          animate={{
+          animate={reduceMotion ? undefined : {
             strokeDashoffset: [200, -200, -600],
             rotate: [180, 400],
           }}
@@ -94,7 +95,7 @@ const Photo = () => {
           strokeWidth="23"
           strokeLinecap="round"
           strokeDasharray="110 1500"
-          animate={{
+          animate={reduceMotion ? undefined : {
             scale: [0.9, 1.15, 0.9],
             opacity: [0.5, 1, 0.5],
           }}

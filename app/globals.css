@@ -21,8 +21,19 @@
 }
 
 @layer base {
+  * {
+    @apply border-white/15;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply font-mono bg-primary text-white leading-loose;
+    @apply overflow-x-hidden font-mono bg-primary text-white leading-loose;
+  }
+  a,
+  button,
+  [role="tab"] {
+    @apply focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent;
   }
   .h1 {
     @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
@@ -33,6 +44,21 @@
 
   .h3 {
     @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

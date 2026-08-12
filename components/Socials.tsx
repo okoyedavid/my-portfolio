@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FiExternalLink, FiGithub, FiMail } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { siteConfig } from "@/lib/site-data";
 
 type Props = {
@@ -9,8 +9,8 @@ type Props = {
 
 const socials = [
   { icon: <FiGithub />, path: siteConfig.github, label: "GitHub" },
-  { icon: <FiExternalLink />, path: siteConfig.website, label: "Website" },
-  { icon: <FiMail />, path: `mailto:${siteConfig.email}`, label: "Email" },
+  { icon: <FiLinkedin />, path: siteConfig.linkedin, label: "LinkedIn" },
+  { icon: <FiMail />, path: siteConfig.emailHref, label: "Email" },
 ];
 
 const Socials = ({ containerStyles, iconStyles }: Props) => {
@@ -22,8 +22,8 @@ const Socials = ({ containerStyles, iconStyles }: Props) => {
           key={index}
           className={iconStyles}
           aria-label={social.label}
-          target="_blank"
-          rel="noreferrer"
+          target={social.path.startsWith("http") ? "_blank" : undefined}
+          rel={social.path.startsWith("http") ? "noopener noreferrer" : undefined}
         >
           {social.icon}
         </Link>

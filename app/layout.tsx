@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import Header from "@/components/Header";
-import PageTransition from "@/components/PageTransition";
-import StairTransition from "@/components/StairTransition";
 import { siteConfig } from "@/lib/site-data";
 import "./globals.css";
 
@@ -34,11 +32,13 @@ export const metadata: Metadata = {
     siteName: `${siteConfig.name} Portfolio`,
     locale: "en_US",
     type: "website",
+    images: [{ url: "/assets/photo.png", width: 500, height: 500, alt: "David Okoye" }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | ${siteConfig.shortRole}`,
     description: siteConfig.seoDescription,
+    images: ["/assets/photo.png"],
   },
   robots: {
     index: true,
@@ -57,7 +57,7 @@ export default function RootLayout({
     "@type": "Person",
     name: siteConfig.name,
     jobTitle: siteConfig.role,
-    email: siteConfig.email,
+    email: siteConfig.emailHref,
     telephone: siteConfig.phone,
     address: {
       "@type": "PostalAddress",
@@ -65,7 +65,7 @@ export default function RootLayout({
       addressCountry: "Nigeria",
     },
     url: siteConfig.website,
-    sameAs: [siteConfig.github, siteConfig.website],
+    sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.website],
   };
 
   return (
@@ -76,8 +76,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Header />
-        <StairTransition />
-        <PageTransition>{children}</PageTransition>
+        {children}
       </body>
     </html>
   );

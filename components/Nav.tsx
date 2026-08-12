@@ -13,13 +13,14 @@ const links = [
 const Nav = () => {
   const pathname = usePathname();
   return (
-    <nav className="flex gap-8">
+    <nav className="flex gap-8" aria-label="Primary navigation">
       {links.map((link, index) => {
         return (
           <Link
             key={index}
             href={link.path}
-            className={`capitalize font-medium hover:text-accent transition-all ${link.path === pathname && "text-accent border-b-2 border-accent"}`}
+            aria-current={link.path === pathname ? "page" : undefined}
+            className={`capitalize font-medium hover:text-accent transition-all ${link.path === pathname ? "text-accent border-b-2 border-accent" : ""}`}
           >
             {link.name}
           </Link>
