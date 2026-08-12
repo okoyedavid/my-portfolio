@@ -333,13 +333,13 @@ export default function Home() {
             Let&apos;s build something useful.
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-white/70">
-            I am open to frontend, frontend-heavy full-stack, junior backend
-            and graduate software-engineering opportunities.
+            I am open to frontend, frontend-heavy full-stack, junior backend and
+            graduate software-engineering opportunities.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button asChild size="lg">
               <a href={siteConfig.emailHref}>
-                <FiMail aria-hidden="true" /> Email David
+                <FiMail aria-hidden="true" /> Email Me
               </a>
             </Button>
             <Button asChild size="lg" variant="outline">
