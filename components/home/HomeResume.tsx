@@ -1,4 +1,4 @@
-import { educationItems, experienceItems } from "@/lib/site-data";
+import { educationItems, experienceItems, siteConfig } from "@/lib/site-data";
 import { FiDownload } from "react-icons/fi";
 import { Button } from "../ui/button";
 import Reveal from "./Reveal";
@@ -22,7 +22,7 @@ export default function HomeResume() {
               </h2>
             </div>
             <Button asChild size="lg" variant="outline">
-              <a href="/Resume.pdf" download>
+              <a href={siteConfig.resume} download>
                 Download r&eacute;sum&eacute; <FiDownload aria-hidden="true" />
               </a>
             </Button>

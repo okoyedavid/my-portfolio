@@ -5,7 +5,6 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 import Header from "@/components/Header";
-import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
 import { siteConfig } from "@/lib/site-data";
 import "./globals.css";
@@ -107,7 +106,7 @@ export default function RootLayout({
         <Header />
         <div className="h-20 md:h-[6.25rem] xl:h-[7.25rem]" aria-hidden="true" />
         <StairTransition />
-        <PageTransition>{children}</PageTransition>
+        {children}
       </body>
     </html>
   );

@@ -11,8 +11,6 @@ export const siteConfig = {
   github: "https://github.com/okoyedavid",
   linkedin: "https://www.linkedin.com/in/okoyedavid7",
   resume: "/Resume.pdf",
-  summary:
-    "full-stack TypeScript developer with hands-on experience building React and Next.js interfaces, Node.js APIs, secure account systems, multi-tenant authorization and asynchronous business workflows.",
   seoDescription:
     "Portfolio of David Okoye, a full-stack TypeScript developer building React, Next.js and Node.js applications, secure account systems, multi-tenant APIs and SaaS workflows.",
   keywords: [
@@ -87,7 +85,6 @@ export const projectItems = [
     num: "01",
     category: "Featured full-stack platform",
     title: "Aurex",
-    status: "Active build",
     summary:
       "Aurex is a full-stack, multi-tenant business operations platform with separate frontend and backend applications. It includes authentication, persistent sessions, business workspaces, system and custom roles, team membership, employee records, invitation delivery, bank-account verification, notifications and audit trails.",
     contribution:
@@ -117,18 +114,11 @@ export const projectItems = [
       "Vitest",
       "Supertest",
     ],
-    images: [
-      "/assets/work/aurex/aurex.png",
-      "/assets/work/aurex/aurex2.png",
-      "/assets/work/aurex/aurex3.png",
-      "/assets/work/aurex/aurex4.png",
-    ],
     links: [
       { label: "Open application", href: "https://aurex.okoyedavid.com" },
       {
         label: "API Status",
         href: "https://api.aurex.okoyedavid.com/status",
-        hint: "Render free tier; a cold start may take a moment.",
       },
       {
         label: "Frontend source",
@@ -188,7 +178,6 @@ export const projectItems = [
     num: "02",
     category: "Academic operations and identity platform",
     title: "AureScore",
-    status: "Active build",
     summary:
       "AureScore is a full-stack academic result infrastructure for secure score entry, automatic GPA computation, multi-level approval and institution-wide result workflows.",
     contribution:
@@ -215,13 +204,6 @@ export const projectItems = [
       "Redis",
       "OpenID Connect",
       "Resend",
-    ],
-    images: [
-      "/assets/work/aurescore/aurescore.webp",
-      "/assets/work/aurescore/aurescore2.jpg",
-      "/assets/work/aurescore/aurescore 3.png",
-      "/assets/work/aurescore/aurescore 4.png",
-      "/assets/work/aurescore/aurescore 5.png",
     ],
     links: [
       { label: "Open application", href: "https://aurescore.okoyedavid.com" },
@@ -294,7 +276,6 @@ export const projectItems = [
     num: "03",
     category: "Fashion commerce interface",
     title: "Aurela",
-    status: "Completed portfolio project",
     summary:
       "Aurela is a responsive fashion-commerce experience focused on product discovery, editorial presentation and modern marketplace interactions.",
     contribution:
@@ -309,12 +290,6 @@ export const projectItems = [
       "I structured Aurela as a component-driven Next.js frontend, using shared layout and presentation primitives to keep product discovery, authentication and product-detail flows consistent across screen sizes.",
     note: null,
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    images: [
-      "/assets/work/aurela/aurela.png",
-      "/assets/work/aurela/aurela2.png",
-      "/assets/work/aurela/aurela3.png",
-      "/assets/work/aurela/aurela4.png",
-    ],
     links: [
       { label: "Open application", href: "https://aurela.okoyedavid.com" },
       { label: "View source", href: "https://github.com/okoyedavid/Aurela" },

@@ -15,14 +15,13 @@ type PinnedProject = {
   num: string;
   title: string;
   category: string;
-  status: string;
   summary: string;
   contribution: string;
   features: readonly string[];
   architecture: string;
   note?: string | null;
   stack: readonly string[];
-  links: readonly { label: string; href: string; hint?: string }[];
+  links: readonly { label: string; href: string }[];
   story: readonly ProjectStoryItem[];
 };
 

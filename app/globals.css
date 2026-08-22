@@ -1,8 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
-
-@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --breakpoint-sm: 640px;
@@ -67,9 +64,6 @@
     @apply text-[36px] font-bold leading-[1.08] tracking-[-0.02em] xl:text-[48px];
   }
 
-  .h3 {
-    @apply text-[20px] font-semibold leading-[1.18] tracking-[-0.01em] xl:text-[24px];
-  }
 }
 
 .skip-link {
@@ -126,14 +120,6 @@
     min-height: 31.25rem !important;
     transform: none !important;
   }
-}
-
-.text-outline {
-  -webkit-text-stroke: 1px #ffffff;
-}
-
-.text-outline-hover {
-  -webkit-text-stroke: 1px green;
 }
 
 .story-scrollbar {

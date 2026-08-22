@@ -58,7 +58,7 @@ export default function ContactFooter() {
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
                 <a
-                  href="/Resume.pdf"
+                  href={siteConfig.resume}
                   download
                   className="text-white/60 transition-colors hover:text-accent"
                 >
