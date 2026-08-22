@@ -11,10 +11,11 @@
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
 
-  --font-sans: var(--font-sans);
+  --font-display: var(--font-bricolage-grotesque);
+  --font-sans: var(--font-dm-sans);
   --font-mono: var(--font-jetbrains-mono);
 
-  --color-primary: #121212;
+  --color-primary: #000;
   --color-surface: #1e1e1e;
   --color-accent: #f59e0b;
   --color-accent-hover: #d97706;
@@ -28,7 +29,23 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply overflow-x-hidden font-mono bg-primary text-white leading-loose;
+    @apply overflow-x-hidden bg-primary font-sans text-white;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  .uppercase {
+    @apply font-mono;
   }
   a,
   button,
@@ -36,14 +53,14 @@
     @apply focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent;
   }
   .h1 {
-    @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
+    @apply text-[44px] font-bold leading-[1.04] tracking-[-0.025em] sm:text-[56px] xl:text-[76px];
   }
   .h2 {
-    @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
+    @apply text-[36px] font-bold leading-[1.08] tracking-[-0.02em] xl:text-[48px];
   }
 
   .h3 {
-    @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+    @apply text-[20px] font-semibold leading-[1.18] tracking-[-0.01em] xl:text-[24px];
   }
 }
 
@@ -68,4 +85,21 @@
 
 .text-outline-hover {
   -webkit-text-stroke: 1px green;
+}
+
+.story-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) #181817;
+}
+
+.story-scrollbar::-webkit-scrollbar {
+  height: 3px;
+}
+
+.story-scrollbar::-webkit-scrollbar-track {
+  background: #181817;
+}
+
+.story-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
 }

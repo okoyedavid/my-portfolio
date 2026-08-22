@@ -1,33 +1,24 @@
-"use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 const links = [
-  { name: "home", path: "/" },
-  { name: "services", path: "/services" },
-  { name: "resume", path: "/resume" },
-  { name: "work", path: "/work" },
-  { name: "contact", path: "/contact" },
-];
+  { name: "Mindset", href: "#engineering-mindset" },
+  { name: "Résumé", href: "#resume" },
+  { name: "Work", href: "#selected-work" },
+  { name: "Contact", href: "#contact" },
+] as const;
 
-const Nav = () => {
-  const pathname = usePathname();
+export default function Nav() {
   return (
-    <nav className="flex gap-8" aria-label="Primary navigation">
-      {links.map((link, index) => {
-        return (
-          <Link
-            key={index}
-            href={link.path}
-            aria-current={link.path === pathname ? "page" : undefined}
-            className={`capitalize font-medium hover:text-accent transition-all ${link.path === pathname ? "text-accent border-b-2 border-accent" : ""}`}
-          >
-            {link.name}
-          </Link>
-        );
-      })}
+    <nav className="flex gap-5 lg:gap-8" aria-label="Primary navigation">
+      {links.map((link) => (
+        <Link
+          key={link.href}
+          href={link.href}
+          className="font-mono text-xs font-medium text-white/80 transition-colors hover:text-accent lg:text-sm"
+        >
+          {link.name}
+        </Link>
+      ))}
     </nav>
   );
-};
-
-export default Nav;
+}

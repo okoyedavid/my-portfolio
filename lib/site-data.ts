@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "David Okoye",
   firstName: "David",
-  role: "Frontend-Heavy Full-Stack TypeScript Developer",
-  shortRole: "Frontend-Heavy Full-Stack TypeScript Developer",
+  role: "Full-Stack TypeScript Developer",
+  shortRole: "Full-Stack TypeScript Developer",
   email: "okoyedav7@gmail.com",
   emailHref: "mailto:okoyedav7@gmail.com",
   phone: "(+234) 916 380 8118",
@@ -10,14 +10,14 @@ export const siteConfig = {
   website: "https://okoyedavid.com",
   github: "https://github.com/okoyedavid",
   linkedin: "https://www.linkedin.com/in/okoyedavid7",
-  resume: "/resume",
+  resume: "/Resume.pdf",
   summary:
-    "Frontend-heavy full-stack TypeScript developer with hands-on experience building React and Next.js interfaces, Node.js APIs, secure account systems, multi-tenant authorization and asynchronous business workflows.",
+    "full-stack TypeScript developer with hands-on experience building React and Next.js interfaces, Node.js APIs, secure account systems, multi-tenant authorization and asynchronous business workflows.",
   seoDescription:
-    "Portfolio of David Okoye, a frontend-heavy full-stack TypeScript developer building React, Next.js and Node.js applications, secure account systems, multi-tenant APIs and SaaS workflows.",
+    "Portfolio of David Okoye, a full-stack TypeScript developer building React, Next.js and Node.js applications, secure account systems, multi-tenant APIs and SaaS workflows.",
   keywords: [
     "David Okoye",
-    "Frontend-Heavy Full-Stack TypeScript Developer",
+    "Full-Stack TypeScript Developer",
     "React Developer",
     "Next.js Developer",
     "TypeScript Developer",
@@ -28,15 +28,6 @@ export const siteConfig = {
     "REST APIs",
   ],
 } as const;
-
-export const coreEngineeringAreas = [
-  "SaaS dashboards",
-  "Authentication and sessions",
-  "Multi-tenant RBAC",
-  "REST API development",
-  "Background jobs and retries",
-  "Responsive product interfaces",
-] as const;
 
 export const experienceItems = [
   {
@@ -71,60 +62,25 @@ export const educationItems = [
   },
 ] as const;
 
-export const skills = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Node.js",
-  "Express",
-  "MongoDB",
-  "REST APIs",
-  "Tailwind CSS",
-  "TanStack Query",
-  "Authentication",
-  "RBAC and permissions",
-  "Vitest",
-  "Supertest",
-] as const;
-
-export const serviceItems = [
-  {
-    num: "01",
-    title: "Frontend product development",
-    description:
-      "Responsive React and Next.js interfaces with reusable components, clear application states and accessible interactions.",
-  },
-  {
-    num: "02",
-    title: "SaaS dashboard development",
-    description:
-      "Data-rich dashboards and admin interfaces for teams, records, permissions and day-to-day business operations.",
-  },
-  {
-    num: "03",
-    title: "Full-stack TypeScript applications",
-    description:
-      "Separate Next.js frontends and Node.js/Express backends connected through typed, validated REST API contracts.",
-  },
-  {
-    num: "04",
-    title: "Authentication and account systems",
-    description:
-      "Sign-in, verification, password recovery, protected routes and revocable session flows with practical security controls.",
-  },
-  {
-    num: "05",
-    title: "Role-based access control",
-    description:
-      "Multi-tenant authorization for system and custom roles, explicit permissions and guarded administrative actions.",
-  },
-  {
-    num: "06",
-    title: "API integration and background workflows",
-    description:
-      "Third-party API integrations and durable background work with persisted status, retry eligibility and failure handling.",
-  },
-] as const;
+export type ProjectStoryItem =
+  | {
+      type: "image";
+      source: string;
+      alt: string;
+      caption: string;
+    }
+  | {
+      type: "narrative";
+      eyebrow: string;
+      title: string;
+      body: string;
+    }
+  | {
+      type: "video";
+      source: string;
+      title: string;
+      poster?: string;
+    };
 
 export const projectItems = [
   {
@@ -149,8 +105,7 @@ export const projectItems = [
     ],
     architecture:
       "Aurex uses MongoDB-backed polling workers rather than an external queue service at its current scale. Jobs are claimed atomically, and status, attempt counts and retry eligibility are persisted so queued work can recover after a process restart.",
-    note:
-      "Payment permissions, employee records and workflow models are implemented. Payment execution is planned and remains under development.",
+    note: "Payment permissions, employee records and workflow models are implemented. Payment execution is planned and remains under development.",
     stack: [
       "Next.js",
       "React",
@@ -163,10 +118,10 @@ export const projectItems = [
       "Supertest",
     ],
     images: [
-      "/assets/work/aurex.png",
-      "/assets/work/aurex2.png",
-      "/assets/work/aurex3.png",
-      "/assets/work/aurex4.png",
+      "/assets/work/aurex/aurex.png",
+      "/assets/work/aurex/aurex2.png",
+      "/assets/work/aurex/aurex3.png",
+      "/assets/work/aurex/aurex4.png",
     ],
     links: [
       { label: "Open application", href: "https://aurex.okoyedavid.com" },
@@ -184,54 +139,156 @@ export const projectItems = [
         href: "https://github.com/okoyedavid/aurex-backend",
       },
     ],
+    story: [
+      {
+        type: "image",
+        source: "/assets/work/aurex/aurex.png",
+        alt: "Aurex public landing page",
+        caption: "Public product introduction",
+      },
+      {
+        type: "image",
+        source: "/assets/work/aurex/aurex2.png",
+        alt: "Aurex product positioning page",
+        caption: "Product positioning and feature discovery",
+      },
+      {
+        type: "narrative",
+        eyebrow: "From promise to product",
+        title: "A clear route into a protected workspace.",
+        body: "The public experience explains the operational promise before asking anyone to create an account. From there, authentication becomes the controlled boundary between product discovery and sensitive business data.",
+      },
+      {
+        type: "image",
+        source: "/assets/work/aurex/aurex3.png",
+        alt: "Aurex secure sign-in interface",
+        caption: "Authentication and protected account access",
+      },
+      {
+        type: "narrative",
+        eyebrow: "The operational centre",
+        title: "One dashboard for the work that keeps a business moving.",
+        body: "I designed the workspace to surface team access, employee operations, invitations, notifications and audit activity without making the user assemble the state of the business from separate tools.",
+      },
+      {
+        type: "image",
+        source: "/assets/work/aurex/aurex4.png",
+        alt: "Aurex business operations dashboard",
+        caption: "Multi-tenant business workspace overview",
+      },
+      {
+        type: "narrative",
+        eyebrow: "Engineering goal",
+        title: "Durable workflows, not decorative dashboard screens.",
+        body: "Behind the interface are rotating sessions, multi-tenant permissions, atomic job claiming, persisted retry state and auditable operations. The goal was a system that remains understandable to users and recoverable when background work fails.",
+      },
+    ] satisfies readonly ProjectStoryItem[],
   },
   {
     num: "02",
-    category: "Media discovery platform",
-    title: "Animex",
-    status: "Completed portfolio project",
+    category: "Academic operations and identity platform",
+    title: "AureScore",
+    status: "Active build",
     summary:
-      "Animex is an anime discovery platform combining public Jikan API data with authentication, account management, protected routes and browser-based watchlists.",
+      "AureScore is a full-stack academic result infrastructure for secure score entry, automatic GPA computation, multi-level approval and institution-wide result workflows.",
     contribution:
-      "I built the responsive discovery interface, server-backed account flows, protected dashboard, API integration and client-side request caching.",
+      "I designed and built the product experience, institutional workspace model, authentication system and backend services across separate frontend and NestJS applications.",
     features: [
-      "Search and content discovery with detailed anime information",
-      "Guest watchlists",
-      "Email verification plus Google and GitHub authentication",
-      "Protected dashboard with profile and session management",
-      "Cached requests with TanStack Query",
-      "Responsive loading and error states",
+      "Role-specific workspaces for departments, faculties and universities",
+      "Score entry, GPA computation and traceable multi-level approval",
+      "HTTP-only cookie sessions with refresh rotation and replay detection",
+      "Google authentication and optional email two-factor authentication",
+      "OpenID Connect provider with Authorization Code and PKCE",
+      "Security audit history and device-session management",
     ],
-    architecture: null,
+    architecture:
+      "The API uses NestJS, PostgreSQL, Prisma and Redis. Authentication combines short-lived access credentials, rotating refresh sessions, rate-limited verification challenges and an OpenID Connect provider for external applications.",
     note: null,
     stack: [
       "Next.js",
       "React",
       "TypeScript",
       "Tailwind CSS",
-      "TanStack Query",
-      "Axios",
-      "Node.js",
-      "Express",
-      "MongoDB",
+      "NestJS",
+      "PostgreSQL",
+      "Prisma",
+      "Redis",
+      "OpenID Connect",
+      "Resend",
     ],
     images: [
-      "/assets/work/animex.png",
-      "/assets/work/animex2.png",
-      "/assets/work/animex3.png",
-      "/assets/work/animex4.png",
+      "/assets/work/aurescore/aurescore.webp",
+      "/assets/work/aurescore/aurescore2.jpg",
+      "/assets/work/aurescore/aurescore 3.png",
+      "/assets/work/aurescore/aurescore 4.png",
+      "/assets/work/aurescore/aurescore 5.png",
     ],
     links: [
-      { label: "Open application", href: "https://animex.okoyedavid.com" },
+      { label: "Open application", href: "https://aurescore.okoyedavid.com" },
+      {
+        label: "Backend API",
+        href: "https://api.aurescore.okoyedavid.com",
+      },
       {
         label: "Frontend source",
-        href: "https://github.com/okoyedavid/animex",
+        href: "https://github.com/okoyedavid/aurescore",
       },
       {
         label: "Backend source",
-        href: "https://github.com/okoyedavid/animex-backend",
+        href: "https://github.com/okoyedavid/aurescore-backend",
       },
     ],
+    story: [
+      {
+        type: "image",
+        source: "/assets/work/aurescore/aurescore.webp",
+        alt: "AureScore public landing page",
+        caption: "Academic result infrastructure",
+      },
+      {
+        type: "image",
+        source: "/assets/work/aurescore/aurescore2.jpg",
+        alt: "AureScore institutional audiences page",
+        caption: "One workflow across institutional levels",
+      },
+      {
+        type: "narrative",
+        eyebrow: "The product goal",
+        title:
+          "Replace disconnected spreadsheets with one traceable result path.",
+        body: "AureScore is designed around the way academic work changes hands. Departments enter and review scores, faculties coordinate approvals, universities retain oversight, and students receive access only after results are approved.",
+      },
+      {
+        type: "image",
+        source: "/assets/work/aurescore/aurescore 3.png",
+        alt: "Sign in with AureScore OpenID Connect documentation",
+        caption: "AureScore as an OpenID Connect provider",
+      },
+      {
+        type: "narrative",
+        eyebrow: "Identity infrastructure",
+        title: "Authentication became a platform capability of its own.",
+        body: "The system supports secure account access, device sessions, optional email 2FA and standards-based OpenID Connect. External server-side applications can integrate Sign in with AureScore through Authorization Code flow with mandatory PKCE.",
+      },
+      {
+        type: "image",
+        source: "/assets/work/aurescore/aurescore 4.png",
+        alt: "AureScore account sign-in page",
+        caption: "Protected access to academic workspaces",
+      },
+      {
+        type: "image",
+        source: "/assets/work/aurescore/aurescore 5.png",
+        alt: "AureScore workspace dashboard",
+        caption: "Institutional and private result workspaces",
+      },
+      {
+        type: "narrative",
+        eyebrow: "Inside the workspace",
+        title: "The dashboard starts with context, ownership and pending work.",
+        body: "Users can move between institutional and private workspaces, see invitations and assigned reviews, and continue the next academic task without losing sight of the role under which they are acting.",
+      },
+    ] satisfies readonly ProjectStoryItem[],
   },
   {
     num: "03",
@@ -252,14 +309,52 @@ export const projectItems = [
     note: null,
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     images: [
-      "/assets/work/aurela.png",
-      "/assets/work/aurela2.png",
-      "/assets/work/aurela3.png",
-      "/assets/work/aurela4.png",
+      "/assets/work/aurela/aurela.png",
+      "/assets/work/aurela/aurela2.png",
+      "/assets/work/aurela/aurela3.png",
+      "/assets/work/aurela/aurela4.png",
     ],
     links: [
       { label: "Open application", href: "https://aurela.okoyedavid.com" },
       { label: "View source", href: "https://github.com/okoyedavid/Aurela" },
     ],
+    story: [
+      {
+        type: "image",
+        source: "/assets/work/aurela/aurela.png",
+        alt: "Aurela editorial commerce landing page",
+        caption: "Editorial product discovery",
+      },
+      {
+        type: "narrative",
+        eyebrow: "Experience goal",
+        title: "Make shopping feel composed, not crowded.",
+        body: "Aurela explores a quieter commerce experience where editorial imagery establishes the mood and the interface gives products enough space to feel considered rather than reduced to a dense catalogue grid.",
+      },
+      {
+        type: "image",
+        source: "/assets/work/aurela/aurela2.png",
+        alt: "Aurela focused product browsing interface",
+        caption: "Focused product browsing",
+      },
+      {
+        type: "image",
+        source: "/assets/work/aurela/aurela3.png",
+        alt: "Aurela member sign-in page",
+        caption: "Member access and account continuity",
+      },
+      {
+        type: "narrative",
+        eyebrow: "Commerce interaction",
+        title: "Editorial presentation still has to support decisive actions.",
+        body: "The visual system carries through authentication and detailed product views, while availability, variants, reviews and purchase actions remain clear at the moment the user needs them.",
+      },
+      {
+        type: "image",
+        source: "/assets/work/aurela/aurela4.png",
+        alt: "Aurela detailed product page",
+        caption: "Product detail and purchase decisions",
+      },
+    ] satisfies readonly ProjectStoryItem[],
   },
 ] as const;

@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import {
+  Bricolage_Grotesque,
+  DM_Sans,
+  JetBrains_Mono,
+} from "next/font/google";
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
@@ -9,7 +13,17 @@ import "./globals.css";
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const bricolageGrotesque = Bricolage_Grotesque({
+  variable: "--font-bricolage-grotesque",
+  subsets: ["latin"],
+});
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -71,13 +85,17 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${jetBrainsMono.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${bricolageGrotesque.variable} ${dmSans.variable} ${jetBrainsMono.variable} h-full antialiased`}
+    >
       <body className="min-h-full">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Header />
+        <div className="h-20 md:h-[6.25rem] xl:h-[7.25rem]" aria-hidden="true" />
         <StairTransition />
         <PageTransition>{children}</PageTransition>
       </body>

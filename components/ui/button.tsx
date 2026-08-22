@@ -5,7 +5,7 @@ import { Slot } from "radix-ui";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-base font-semibold ring-offset-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md font-mono text-base font-semibold ring-offset-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
   {
     variants: {
       variant: {
@@ -17,8 +17,8 @@ const buttonVariants = cva(
       size: {
         default: "h-11 px-6",
         sm: "h-auto w-auto",
-        md: "h-12 px-6",
-        lg: "h-14 px-8 text-sm uppercase tracking-[2px]",
+        md: "h-10 px-4",
+        lg: "h-12 px-6 text-sm uppercase tracking-[2px]",
       },
     },
     defaultVariants: {
