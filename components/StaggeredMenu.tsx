@@ -1,7 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import "./StaggeredMenu.css";
 
 const menuItems = [
@@ -16,6 +21,10 @@ export default function StaggeredMenu() {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
+
+  const closeMenu = useCallback(() => {
+    setOpen(false);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -36,7 +45,7 @@ export default function StaggeredMenu() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         event.preventDefault();
-        setOpen(false);
+        closeMenu();
         return;
       }
 
@@ -71,15 +80,14 @@ export default function StaggeredMenu() {
       });
       toggle?.focus();
     };
-  }, [open]);
+  }, [closeMenu, open]);
 
   return (
-    <div ref={menuRef} className="mobile-menu" data-open={open || undefined}>
-      <div className="mobile-menu__layers" aria-hidden="true">
-        <span />
-        <span />
-      </div>
-
+    <div
+      ref={menuRef}
+      className="mobile-menu"
+      data-open={open || undefined}
+    >
       <div className="mobile-menu__bar">
         <Link href="/" className="mobile-menu__logo" aria-label="David Okoye, home">
           David<span>.</span>
@@ -106,14 +114,11 @@ export default function StaggeredMenu() {
         inert={!open}
       >
         <ul className="grid gap-2">
-          {menuItems.map((item, index) => (
-            <li
-              key={item.href}
-              style={{ "--menu-index": index } as CSSProperties}
-            >
+          {menuItems.map((item) => (
+            <li key={item.href}>
               <Link
                 href={item.href}
-                onClick={() => setOpen(false)}
+                onClick={closeMenu}
                 className="mobile-menu__link"
               >
                 {item.label}

@@ -48,13 +48,20 @@ export const metadata: Metadata = {
     siteName: `${siteConfig.name} Portfolio`,
     locale: "en_US",
     type: "website",
-    images: [{ url: "/assets/photo.png", width: 500, height: 500, alt: "David Okoye" }],
+    images: [
+      {
+        url: "/images/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "David Okoye, Software Engineer — Secure products. Reliable systems.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | ${siteConfig.shortRole}`,
     description: siteConfig.seoDescription,
-    images: ["/assets/photo.png"],
+    images: ["/images/opengraph-image.png"],
   },
   robots: {
     index: true,
