@@ -32,7 +32,7 @@ export default function HomeResume() {
         <div className="grid gap-16 pt-12 lg:grid-cols-[1.35fr_0.65fr] lg:gap-20">
           <Reveal delay={0.06}>
             <div>
-              <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-white/45">
+              <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                 01 / Experience
               </h3>
               <div className="mt-6 divide-y divide-white/10 border-t border-white/10">
@@ -42,7 +42,7 @@ export default function HomeResume() {
                     <h4 className="mt-2 text-xl font-semibold md:text-2xl">
                       {item.position}
                     </h4>
-                    <p className="mt-1 text-sm text-white/45">{item.company}</p>
+                    <p className="mt-1 text-sm text-white/60">{item.company}</p>
                     <ul className="mt-5 grid max-w-[68ch] gap-2.5 text-sm leading-[1.65] text-white/65">
                       {item.responsibilities.map((responsibility) => (
                         <li key={responsibility} className="flex gap-3">
@@ -61,7 +61,7 @@ export default function HomeResume() {
 
           <Reveal delay={0.12}>
             <div>
-              <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-white/45">
+              <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                 02 / Education
               </h3>
               <div className="mt-6 border-t border-white/10">
@@ -69,7 +69,7 @@ export default function HomeResume() {
                   <article key={item.institution} className="py-6">
                     <p className="font-mono text-xs text-accent">{item.duration}</p>
                     <h4 className="mt-2 text-xl font-semibold">{item.degree}</h4>
-                    <p className="mt-1 text-sm leading-relaxed text-white/45">
+                    <p className="mt-1 text-sm leading-relaxed text-white/60">
                       {item.institution}
                     </p>
                   </article>

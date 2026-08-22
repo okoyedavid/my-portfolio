@@ -9,7 +9,7 @@ import {
   useState,
   type CSSProperties,
 } from "react";
-import { FiArrowUpRight, FiPlay } from "react-icons/fi";
+import { FiArrowRight, FiArrowUpRight, FiPlay } from "react-icons/fi";
 
 type PinnedProject = {
   num: string;
@@ -17,6 +17,10 @@ type PinnedProject = {
   category: string;
   status: string;
   summary: string;
+  contribution: string;
+  features: readonly string[];
+  architecture: string;
+  note?: string | null;
   stack: readonly string[];
   links: readonly { label: string; href: string; hint?: string }[];
   story: readonly ProjectStoryItem[];
@@ -41,13 +45,15 @@ function PinnedVideo({ item }: { item: Extract<ProjectStoryItem, { type: "video"
   };
 
   return (
-    <div className="relative h-full w-[90vw] shrink-0 overflow-hidden bg-black xl:aspect-video xl:w-auto">
+    <div className="relative aspect-video w-[90vw] shrink-0 self-center overflow-hidden bg-black xl:h-full xl:w-auto">
       <video
         ref={videoRef}
         className="h-full w-full object-contain"
+        aria-label={item.title}
         controls={playing}
         poster={item.poster}
         preload="metadata"
+        playsInline
         onEnded={() => setPlaying(false)}
       >
         <source src={item.source} />
@@ -144,16 +150,21 @@ export default function PinnedProjectStory({
 
   return (
     <section
+      id={`project-${project.num}`}
       ref={sectionRef}
+      tabIndex={-1}
       style={sectionStyle}
-      className="relative border-t border-white/10 xl:h-[calc(100svh+var(--pin-distance))]"
+      className="project-pin-section relative scroll-mt-20 border-t border-white/10 xl:h-[calc(100svh+var(--pin-distance))] md:scroll-mt-24"
       aria-labelledby={`home-project-${project.num}`}
     >
-      <div className="bg-primary xl:sticky xl:top-0 xl:grid xl:h-svh xl:grid-cols-[340px_minmax(0,1fr)] xl:overflow-hidden">
-        <aside className="relative z-10 flex flex-col border-white/10 bg-[#080808] px-5 py-10 md:px-8 xl:h-svh xl:border-r xl:px-9 xl:py-10">
+      <div className="project-pin-frame bg-primary xl:sticky xl:top-0 xl:grid xl:h-svh xl:grid-cols-[340px_minmax(0,1fr)] xl:overflow-hidden">
+        <aside
+          className="relative z-10 flex flex-col overflow-y-auto border-white/10 bg-[#080808] px-5 py-10 [scrollbar-width:thin] md:px-8 xl:h-svh xl:border-r xl:px-9 xl:py-10"
+          aria-label={`${project.title} project information`}
+        >
           <div className="flex items-center justify-between font-mono text-[0.66rem] uppercase tracking-[0.16em]">
             <span className="text-accent">{project.num}</span>
-            <span className="text-white/30">
+            <span className="text-white/55">
               {String(projectIndex + 1).padStart(2, "0")} / {String(projectCount).padStart(2, "0")}
             </span>
           </div>
@@ -172,10 +183,11 @@ export default function PinnedProjectStory({
               className="mt-3 inline-flex items-center gap-1.5 font-mono text-[0.68rem] text-accent transition-colors hover:text-white"
             >
               {displayUrl(liveLink.href)} <FiArrowUpRight aria-hidden="true" />
+              <span className="sr-only"> (opens in a new tab)</span>
             </a>
           )}
 
-          <p className="mt-7 font-mono text-[0.62rem] uppercase tracking-[0.12em] text-white/38">
+          <p className="mt-7 font-mono text-[0.62rem] uppercase tracking-[0.12em] text-white/55">
             {project.category}
           </p>
           <p className="mt-5 text-[0.95rem] leading-[1.65] text-white/68">
@@ -185,16 +197,16 @@ export default function PinnedProjectStory({
           <div className="mt-8 border-t border-white/10">
             <details className="group border-b border-white/10">
               <summary className="flex cursor-pointer list-none items-center gap-3 py-4 font-mono text-[0.65rem] uppercase tracking-[0.12em] text-white/50 hover:text-white">
-                <span className="text-accent transition-transform group-open:rotate-45">+</span>
+                <span className="text-accent transition-transform group-open:rotate-45" aria-hidden="true">+</span>
                 Technology
               </summary>
-              <p className="pb-4 font-mono text-[0.68rem] leading-[1.8] text-white/48">
+              <p className="pb-4 font-mono text-[0.68rem] leading-[1.8] text-white/60">
                 {project.stack.join(" · ")}
               </p>
             </details>
             <details className="group border-b border-white/10">
               <summary className="flex cursor-pointer list-none items-center gap-3 py-4 font-mono text-[0.65rem] uppercase tracking-[0.12em] text-white/50 hover:text-white">
-                <span className="text-accent transition-transform group-open:rotate-45">+</span>
+                <span className="text-accent transition-transform group-open:rotate-45" aria-hidden="true">+</span>
                 Resources
               </summary>
               <ul className="space-y-3 pb-5">
@@ -207,25 +219,75 @@ export default function PinnedProjectStory({
                       className="flex items-center justify-between gap-3 text-sm text-white/60 hover:text-accent"
                     >
                       {link.label} <FiArrowUpRight aria-hidden="true" />
+                      <span className="sr-only"> (opens in a new tab)</span>
                     </a>
                   </li>
                 ))}
               </ul>
             </details>
+            <details className="group border-b border-white/10">
+              <summary className="flex cursor-pointer list-none items-center gap-3 py-4 font-mono text-[0.65rem] uppercase tracking-[0.12em] text-white/50 hover:text-white">
+                <span className="text-accent transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                Engineering
+              </summary>
+              <div className="space-y-5 pb-5 text-sm leading-[1.65] text-white/60">
+                <div>
+                  <h4 className="font-mono text-[0.62rem] uppercase tracking-[0.1em] text-accent">
+                    My contribution
+                  </h4>
+                  <p className="mt-2">{project.contribution}</p>
+                </div>
+
+                <div>
+                  <h4 className="font-mono text-[0.62rem] uppercase tracking-[0.1em] text-accent">
+                    Implementation
+                  </h4>
+                  <ul className="mt-2 space-y-2">
+                    {project.features.slice(0, 5).map((feature) => (
+                      <li key={feature} className="flex gap-2">
+                        <span className="text-accent" aria-hidden="true">/</span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-mono text-[0.62rem] uppercase tracking-[0.1em] text-accent">
+                    Architecture decision
+                  </h4>
+                  <p className="mt-2">{project.architecture}</p>
+                </div>
+
+                {project.note && (
+                  <div>
+                    <h4 className="font-mono text-[0.62rem] uppercase tracking-[0.1em] text-accent">
+                      Scope note
+                    </h4>
+                    <p className="mt-2">{project.note}</p>
+                  </div>
+                )}
+              </div>
+            </details>
           </div>
 
-          <p className="mt-8 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-white/25 xl:mt-auto">
-            Scroll to continue →
+          <p className="mt-8 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-white/55 xl:mt-auto">
+            <span className="inline-flex items-center gap-2">
+              Scroll to continue <FiArrowRight aria-hidden="true" />
+            </span>
           </p>
         </aside>
 
         <div
           ref={viewportRef}
-          className="story-scrollbar min-w-0 overflow-x-auto bg-[#111] xl:h-svh xl:overflow-hidden"
+          className="project-story-viewport story-scrollbar min-w-0 overflow-x-auto bg-[#111] focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-accent xl:h-svh xl:overflow-hidden"
+          role="region"
+          aria-label={`${project.title} visual project tour`}
+          tabIndex={0}
         >
           <div
             ref={railRef}
-            className="flex h-[68svh] min-h-[500px] w-max snap-x snap-mandatory items-stretch gap-[3px] will-change-transform xl:h-svh xl:min-h-0 xl:snap-none"
+            className="project-story-rail flex h-[68svh] min-h-[500px] w-max snap-x snap-mandatory items-stretch gap-[3px] will-change-transform xl:h-svh xl:min-h-0 xl:snap-none"
           >
             {orderedStory.map((item, index) => {
               const sequence = `${project.num}.${String(index + 1).padStart(2, "0")}`;
@@ -264,13 +326,13 @@ export default function PinnedProjectStory({
               return (
                 <figure
                   key={`${item.source}-${index}`}
-                  className="relative h-full w-[92vw] shrink-0 snap-center overflow-hidden bg-[#e8e8e6] sm:w-[88vw] xl:aspect-[1366/645] xl:w-auto"
+                  className="relative aspect-[1366/645] w-[92vw] shrink-0 snap-center self-center overflow-hidden bg-[#e8e8e6] sm:w-[88vw] xl:h-full xl:w-auto"
                 >
                   <Image
                     src={item.source}
                     alt={item.alt}
                     fill
-                    className="object-cover object-top"
+                    className="object-contain object-center"
                     sizes="(max-width: 1279px) 92vw, 1600px"
                   />
                   <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-black/80 to-transparent px-5 pb-4 pt-14 font-mono text-[0.62rem] uppercase tracking-[0.12em] text-white/75">

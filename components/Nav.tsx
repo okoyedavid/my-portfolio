@@ -14,7 +14,7 @@ export default function Nav() {
         <Link
           key={link.href}
           href={link.href}
-          className="font-mono text-xs font-medium text-white/80 transition-colors hover:text-accent lg:text-sm"
+          className="inline-flex min-h-6 items-center font-mono text-xs font-medium text-white/80 transition-colors hover:text-accent lg:text-sm"
         >
           {link.name}
         </Link>

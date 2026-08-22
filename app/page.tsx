@@ -12,12 +12,14 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main>
-      <HomeHero />
-      <EngineeringMindset />
-      <HomeResume />
-      <SelectedWork />
+    <>
+      <main id="main-content" tabIndex={-1}>
+        <HomeHero />
+        <EngineeringMindset />
+        <HomeResume />
+        <SelectedWork />
+      </main>
       <ContactFooter />
-    </main>
+    </>
   );
 }

@@ -7,6 +7,7 @@ const Photo = () => {
   return (
     <div className="aspect-square w-full max-w-100 flex items-center justify-center">
       <motion.svg
+        aria-hidden="true"
         className="w-75 h-75 xl:w-126.5 xl:h-126.5"
         viewBox="0 0 506 506"
         fill="none"

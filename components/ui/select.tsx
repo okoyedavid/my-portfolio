@@ -44,14 +44,14 @@ function SelectTrigger({
       data-slot="select-trigger"
       data-size={size}
       className={cn(
-        "flex h-12 w-full items-center justify-between rounded-md border border-white/10 bg-primary px-4 py-5 text-base text-white/60 placeholder:text-white/10 focus:border-accent outline-none",
+        "flex h-12 w-full items-center justify-between rounded-md border border-white/40 bg-primary px-4 py-5 text-base text-white/70 placeholder:text-white/60 focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
         className,
       )}
       {...props}
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <ChevronDownIcon className="pointer-events-none size-4 text-oklch(0.556 0 0) dark:text-oklch(0.708 0 0)" />
+        <ChevronDownIcon aria-hidden="true" className="pointer-events-none size-4 text-white/60" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );
@@ -127,7 +127,7 @@ function SelectItem({
     >
       <span className="pointer-events-none absolute right-2 flex size-4 items-center justify-center">
         <SelectPrimitive.ItemIndicator>
-          <CheckIcon className="pointer-events-none" />
+          <CheckIcon aria-hidden="true" className="pointer-events-none" />
         </SelectPrimitive.ItemIndicator>
       </span>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
@@ -164,7 +164,7 @@ function SelectScrollUpButton({
       )}
       {...props}
     >
-      <ChevronUpIcon />
+      <ChevronUpIcon aria-hidden="true" />
     </SelectPrimitive.ScrollUpButton>
   );
 }
@@ -182,7 +182,7 @@ function SelectScrollDownButton({
       )}
       {...props}
     >
-      <ChevronDownIcon />
+      <ChevronDownIcon aria-hidden="true" />
     </SelectPrimitive.ScrollDownButton>
   );
 }

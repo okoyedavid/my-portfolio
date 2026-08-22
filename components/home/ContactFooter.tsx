@@ -30,12 +30,12 @@ export default function ContactFooter() {
               </a>
             </div>
 
-            <div className="space-y-5 lg:justify-self-end">
+            <address className="space-y-5 not-italic lg:justify-self-end">
               <p className="max-w-sm text-sm leading-[1.7] text-white/55">
                 Open to frontend, full-stack TypeScript and graduate
                 software-engineering opportunities.
               </p>
-              <p className="font-mono text-xs text-white/35">{siteConfig.location}</p>
+              <p className="font-mono text-xs text-white/60">{siteConfig.location}</p>
               <div className="flex flex-wrap gap-5 text-sm">
                 <a
                   href={siteConfig.github}
@@ -45,6 +45,7 @@ export default function ContactFooter() {
                 >
                   <FiGithub aria-hidden="true" /> GitHub
                   <FiArrowUpRight aria-hidden="true" />
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
                 <a
                   href={siteConfig.linkedin}
@@ -54,6 +55,7 @@ export default function ContactFooter() {
                 >
                   <FiLinkedin aria-hidden="true" /> LinkedIn
                   <FiArrowUpRight aria-hidden="true" />
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
                 <a
                   href="/Resume.pdf"
@@ -63,11 +65,11 @@ export default function ContactFooter() {
                   R&eacute;sum&eacute; PDF
                 </a>
               </div>
-            </div>
+            </address>
           </div>
         </Reveal>
 
-        <div className="flex flex-col gap-2 pt-6 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-white/25 sm:flex-row sm:justify-between">
+        <div className="flex flex-col gap-2 pt-6 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-white/55 sm:flex-row sm:justify-between">
           <span>&copy; 2026 David Okoye</span>
           <a href="#top" className="inline-flex items-center gap-2 transition-colors hover:text-accent">
             Back to top <FiArrowUp aria-hidden="true" />

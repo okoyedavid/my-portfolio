@@ -94,6 +94,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Header />
         <div className="h-20 md:h-[6.25rem] xl:h-[7.25rem]" aria-hidden="true" />
         <StairTransition />

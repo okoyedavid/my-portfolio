@@ -49,8 +49,16 @@
   }
   a,
   button,
+  summary,
+  input,
+  textarea,
+  select,
   [role="tab"] {
     @apply focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent;
+  }
+
+  [id] {
+    scroll-margin-top: 7rem;
   }
   .h1 {
     @apply text-[44px] font-bold leading-[1.04] tracking-[-0.025em] sm:text-[56px] xl:text-[76px];
@@ -62,6 +70,26 @@
   .h3 {
     @apply text-[20px] font-semibold leading-[1.18] tracking-[-0.01em] xl:text-[24px];
   }
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  border-radius: 0.25rem;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  padding: 0.65rem 1rem;
+  font-family: var(--font-jetbrains-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -76,6 +104,27 @@
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .project-pin-section {
+    height: auto !important;
+  }
+
+  .project-pin-frame {
+    position: static !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .project-story-viewport {
+    height: auto !important;
+    overflow-x: auto !important;
+  }
+
+  .project-story-rail {
+    height: min(68svh, 44rem) !important;
+    min-height: 31.25rem !important;
+    transform: none !important;
   }
 }
 

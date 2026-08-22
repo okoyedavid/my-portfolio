@@ -305,7 +305,8 @@ export const projectItems = [
       "Editorial product presentation",
       "Marketplace-focused interaction design",
     ],
-    architecture: null,
+    architecture:
+      "I structured Aurela as a component-driven Next.js frontend, using shared layout and presentation primitives to keep product discovery, authentication and product-detail flows consistent across screen sizes.",
     note: null,
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     images: [

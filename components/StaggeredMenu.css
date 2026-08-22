@@ -43,6 +43,9 @@
 }
 
 .mobile-menu__logo {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
   border-radius: .125rem;
   color: white;
   font-family: var(--font-bricolage-grotesque);
@@ -56,6 +59,9 @@
 
 .mobile-menu__toggle {
   display: inline-flex;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  justify-content: center;
   align-items: center;
   gap: .5rem;
   border: 0;

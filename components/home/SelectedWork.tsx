@@ -9,6 +9,7 @@ import Reveal from "./Reveal";
 export default function SelectedWork() {
   const tourRef = useRef<HTMLDivElement>(null);
   const [tourVisible, setTourVisible] = useState(false);
+  const lastProject = projectItems.at(-1);
 
   useEffect(() => {
     const tour = tourRef.current;
@@ -43,6 +44,20 @@ export default function SelectedWork() {
         </Reveal>
       </header>
 
+      <div className="mx-auto max-w-6xl px-5 pb-10 md:px-8">
+        <a
+          href={lastProject ? `#project-${lastProject.num}` : "#contact"}
+          className={
+            tourVisible
+              ? "fixed bottom-5 right-5 z-40 inline-flex animate-in items-center gap-2 rounded-full border border-white/15 bg-primary/90 px-4 py-2.5 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-white/70 shadow-lg backdrop-blur-sm duration-300 fade-in slide-in-from-bottom-2 hover:border-accent hover:text-accent md:bottom-7 md:right-8"
+              : "inline-flex min-h-11 items-center gap-2 rounded-full border border-white/40 px-4 py-2.5 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-white/70 hover:border-accent hover:text-accent"
+          }
+        >
+          Skip to {lastProject?.title ?? "final project"}{" "}
+          <FiArrowDown aria-hidden="true" />
+        </a>
+      </div>
+
       <div ref={tourRef}>
         {projectItems.map((project, index) => (
           <PinnedProjectStory
@@ -54,14 +69,6 @@ export default function SelectedWork() {
         ))}
       </div>
 
-      {tourVisible && (
-        <a
-          href="#contact"
-          className="fixed bottom-5 right-5 z-40 inline-flex animate-in items-center gap-2 rounded-full border border-white/15 bg-primary/90 px-4 py-2.5 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-white/70 shadow-lg backdrop-blur-sm duration-300 fade-in slide-in-from-bottom-2 hover:border-accent hover:text-accent md:bottom-7 md:right-8"
-        >
-          Skip project tour <FiArrowDown aria-hidden="true" />
-        </a>
-      )}
     </section>
   );
 }

@@ -75,7 +75,7 @@ function SheetContent({
             asChild
           >
             <Button className="absolute top-3 right-3">
-              <IoMdClose className="text-3xl text-accent" />
+              <IoMdClose className="text-3xl text-accent" aria-hidden="true" />
               <span className="sr-only">Close</span>
             </Button>
           </SheetPrimitive.Close>

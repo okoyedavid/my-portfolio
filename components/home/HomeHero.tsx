@@ -54,6 +54,7 @@ export default function HomeHero() {
               >
                 <FiGithub aria-hidden="true" /> GitHub
                 <FiArrowUpRight aria-hidden="true" />
+                <span className="sr-only"> (opens in a new tab)</span>
               </a>
               <a
                 className="inline-flex items-center gap-2 text-white/70 transition-colors hover:text-accent"
@@ -63,6 +64,7 @@ export default function HomeHero() {
               >
                 <FiLinkedin aria-hidden="true" /> LinkedIn
                 <FiArrowUpRight aria-hidden="true" />
+                <span className="sr-only"> (opens in a new tab)</span>
               </a>
               <Link
                 className="inline-flex items-center gap-2 text-white/70 transition-colors hover:text-accent"
