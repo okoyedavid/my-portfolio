@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Nav from "./Nav";
-import StaggeredMenu from "./StaggeredMenu";
+import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   return (
@@ -17,7 +17,7 @@ const Header = () => {
         </div>
 
         <div className="md:hidden">
-          <StaggeredMenu />
+          <MobileMenu />
         </div>
       </div>
     </header>

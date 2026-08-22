@@ -11,7 +11,9 @@ const menuItems = [
   { label: "Contact", href: "#contact" },
 ] as const;
 
-export default function StaggeredMenu() {
+const SLIDE_DURATION = 520;
+
+export default function MobileMenu() {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
@@ -25,9 +27,17 @@ export default function StaggeredMenu() {
     const toggle = toggleRef.current;
     const pageRegions = document.querySelectorAll<HTMLElement>("main, footer");
     const previousOverflow = document.body.style.overflow;
-    const focusFrame = requestAnimationFrame(() => {
-      menu?.querySelector<HTMLAnchorElement>("#mobile-navigation a")?.focus();
-    });
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const focusTimer = window.setTimeout(
+      () => {
+        menu
+          ?.querySelector<HTMLAnchorElement>("#mobile-navigation a")
+          ?.focus({ preventScroll: true });
+      },
+      reduceMotion ? 0 : SLIDE_DURATION,
+    );
 
     document.body.style.overflow = "hidden";
     pageRegions.forEach((region) => {
@@ -54,34 +64,37 @@ export default function StaggeredMenu() {
       if (!first || !last) return;
       if (event.shiftKey && document.activeElement === first) {
         event.preventDefault();
-        last.focus();
+        last.focus({ preventScroll: true });
       } else if (!event.shiftKey && document.activeElement === last) {
         event.preventDefault();
-        first.focus();
+        first.focus({ preventScroll: true });
       }
     };
 
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      cancelAnimationFrame(focusFrame);
+      window.clearTimeout(focusTimer);
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = previousOverflow;
       pageRegions.forEach((region) => {
         region.inert = false;
       });
-      toggle?.focus();
+      toggle?.focus({ preventScroll: true });
     };
   }, [closeMenu, open]);
 
   return (
     <div
       ref={menuRef}
-      className="pointer-events-none fixed inset-0 z-40 h-dvh overflow-hidden"
+      className={`pointer-events-none fixed inset-0 z-40 h-dvh overflow-hidden ${
+        open ? "bg-primary" : "bg-transparent"
+      }`}
     >
       <div className="pointer-events-auto relative z-20 flex h-20 items-center justify-between bg-primary px-4">
         <Link
           href="/"
+          onClick={closeMenu}
           className="inline-flex min-h-11 items-center rounded-sm font-display text-3xl font-bold leading-none tracking-[-0.02em] text-white"
           aria-label="David Okoye, home"
         >
@@ -91,15 +104,17 @@ export default function StaggeredMenu() {
         <button
           ref={toggleRef}
           type="button"
-          className="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 bg-transparent font-mono text-xs uppercase tracking-[0.08em] text-white"
+          className="inline-flex h-11 w-24 items-center justify-end gap-2 bg-transparent font-mono text-xs uppercase tracking-[0.08em] text-white"
           aria-expanded={open}
           aria-controls="mobile-navigation"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((value) => !value)}
         >
-          <span>{open ? "Close" : "Menu"}</span>
+          <span className="inline-block w-12 text-right">
+            {open ? "Close" : "Menu"}
+          </span>
           <span
-            className={`relative block size-4 transition-transform duration-500 ease-out motion-reduce:transition-none ${
+            className={`relative block size-4 shrink-0 transition-transform duration-500 ease-out motion-reduce:duration-0 ${
               open ? "rotate-[135deg]" : "rotate-0"
             }`}
             aria-hidden="true"
@@ -112,7 +127,7 @@ export default function StaggeredMenu() {
 
       <nav
         id="mobile-navigation"
-        className={`absolute inset-0 flex flex-col justify-center bg-primary px-5 pb-8 pt-24 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
+        className={`absolute inset-0 z-10 flex will-change-transform flex-col justify-center bg-primary px-5 pb-8 pt-24 transition-transform duration-[520ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:duration-0 ${
           open
             ? "pointer-events-auto translate-x-0"
             : "pointer-events-none translate-x-full"
