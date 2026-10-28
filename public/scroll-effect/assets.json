@@ -1,0 +1,76 @@
+{
+  "credit": "Parallax scene adapted from the supplied CodePen example, recreating Unfold’s Northface scene.",
+  "images": [
+    {
+      "source": "https://assets.codepen.io/721952/cloud1Mask.jpg",
+      "file": "cloud1Mask.jpg",
+      "originalBytes": 12107,
+      "bytes": 12107,
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "source": "https://assets.codepen.io/721952/sky.jpg",
+      "file": "sky.webp",
+      "originalBytes": 3906,
+      "bytes": 3716,
+      "width": 1200,
+      "height": 590
+    },
+    {
+      "source": "https://assets.codepen.io/721952/mountBg.png",
+      "file": "mountBg.webp",
+      "originalBytes": 47294,
+      "bytes": 46192,
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "source": "https://assets.codepen.io/721952/mountMg.png",
+      "file": "mountMg.webp",
+      "originalBytes": 83527,
+      "bytes": 83366,
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "source": "https://assets.codepen.io/721952/cloud2.png",
+      "file": "cloud2.webp",
+      "originalBytes": 30300,
+      "bytes": 30100,
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "source": "https://assets.codepen.io/721952/mountFg.png",
+      "file": "mountFg.webp",
+      "originalBytes": 74296,
+      "bytes": 74166,
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "source": "https://assets.codepen.io/721952/cloud1.png",
+      "file": "cloud1.png",
+      "originalBytes": 29169,
+      "bytes": 29169,
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "source": "https://assets.codepen.io/721952/cloud3.png",
+      "file": "cloud3.png",
+      "originalBytes": 58265,
+      "bytes": 58265,
+      "width": 1200,
+      "height": 800
+    }
+  ],
+  "font": {
+    "family": "Montserrat",
+    "weight": 900,
+    "subset": "Hi there,My name is David Okoye",
+    "file": "montserrat-greeting-900.woff2",
+    "bytes": 4708
+  }
+}

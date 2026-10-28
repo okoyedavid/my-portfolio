@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
-import {
-  Bricolage_Grotesque,
-  DM_Sans,
-  JetBrains_Mono,
-} from "next/font/google";
-import Header from "@/components/Header";
+import { Bricolage_Grotesque, DM_Sans, JetBrains_Mono } from "next/font/google";
+import PageTopSpacer from "@/components/PageTopSpacer";
 import StairTransition from "@/components/StairTransition";
 import { siteConfig } from "@/lib/site-data";
 import "./globals.css";
@@ -103,8 +99,8 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <Header />
-        <div className="h-20 md:h-[6.25rem] xl:h-[7.25rem]" aria-hidden="true" />
+        {/* <Header /> */}
+        <PageTopSpacer />
         <StairTransition />
         {children}
       </body>

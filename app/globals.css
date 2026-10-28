@@ -63,7 +63,6 @@
   .h2 {
     @apply text-[36px] font-bold leading-[1.08] tracking-[-0.02em] xl:text-[48px];
   }
-
 }
 
 .skip-link {

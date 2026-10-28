@@ -1,0 +1,380 @@
+.showcase {
+  position: absolute;
+  inset: 0;
+  color: white;
+  font-family: var(--font-dm-sans), Arial, sans-serif;
+}
+.heading {
+  position: absolute;
+  top: 12svh;
+  left: 0;
+  right: 0;
+  text-align: center;
+  pointer-events: none;
+  z-index: 2;
+}
+.heading p {
+  display: none;
+}
+.heading h2 {
+  margin: 0;
+  font-family: var(--font-bricolage-grotesque), Arial, sans-serif;
+  font-weight: 650;
+  font-size: clamp(28px, 3vw, 46px);
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  text-shadow: 0 2px 18px #23364c55;
+}
+.stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 60px;
+  pointer-events: none;
+}
+.previewStage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.preview {
+  position: absolute;
+  inset: 0;
+}
+.wordWindow {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.screenReader,
+.wordDescription {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.fallbackWord {
+  margin: 0;
+  font-family: var(--font-bricolage-grotesque), Arial, sans-serif;
+  font-size: clamp(56px, 7vw, 110px);
+  font-weight: 800;
+  letter-spacing: -4px;
+  color: #20354f;
+}
+.previewActions {
+  position: absolute;
+  top: calc(50% + clamp(74px, 10svh, 110px));
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: auto;
+}
+.viewButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  min-width: 210px;
+  min-height: 54px;
+  padding: 14px 27px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: #f1f6fff5;
+  color: #183047;
+  font-size: 15px;
+  font-weight: 750;
+  box-shadow: 0 5px 24px #23354d20;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.viewButton:hover {
+  background: white;
+  transform: translateY(-2px);
+}
+.projectArrow {
+  position: absolute;
+  z-index: 3;
+  top: 45%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 0;
+  background: transparent;
+  color: #f4f8ff;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  pointer-events: auto;
+}
+.projectArrow:hover {
+  opacity: 0.6;
+}
+.previousProject {
+  left: max(18px, calc(50% - 510px));
+}
+.nextProject {
+  right: max(18px, calc(50% - 510px));
+}
+.projectTabs {
+  position: absolute;
+  bottom: 10svh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 32px;
+  z-index: 3;
+}
+.projectTabs button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  color: #f1f6ffb0;
+  cursor: pointer;
+  padding: 10px 0;
+  font:
+    11px/1.5 var(--font-jetbrains-mono),
+    monospace;
+  transition: color 0.2s;
+}
+.projectTabs button span {
+  font-size: 8px;
+  opacity: 0.6;
+}
+.projectTabs .selectedTab {
+  color: white;
+  border-bottom-color: #ffffffa0;
+}
+.projectTabs button:hover {
+  color: white;
+}
+.showcase button:focus-visible,
+.showcase a:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 5px;
+}
+.isOpen .heading {
+  top: 5svh;
+}
+.isOpen .heading h2 {
+  font-size: 28px;
+}
+.isOpen .projectArrow {
+  display: none;
+}
+.isOpen .projectTabs {
+  bottom: 3svh;
+}
+.detailStage {
+  position: relative;
+  width: min(1480px, 100%);
+  height: min(78svh, 840px);
+  pointer-events: auto;
+  color: #183047;
+}
+.details {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.detailBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color: #29445a;
+  font:
+    10px/1.5 var(--font-jetbrains-mono),
+    monospace;
+}
+.backButton {
+  padding: 5px 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.backButton span {
+  margin-left: 15px;
+}
+.introduction {
+  min-height: 76px;
+  padding: 14px 0;
+}
+.introduction h3 {
+  margin: 0;
+  max-width: 1060px;
+  font-family: var(--font-bricolage-grotesque), Arial, sans-serif;
+  font-size: clamp(19px, 2.1vw, 29px);
+  line-height: 1.15;
+  font-weight: 650;
+  letter-spacing: -0.6px;
+}
+.introduction p {
+  margin: 7px 0 0;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #29445a;
+}
+.caret {
+  font-weight: 400;
+  opacity: 0.65;
+}
+.mediaSlot {
+  flex: 1;
+  min-height: 0;
+}
+.gallery {
+  height: 100%;
+}
+@media (max-width: 767px) {
+  .heading {
+    top: 16svh;
+  }
+  .heading h2 {
+    font-size: 31px;
+  }
+  .stage {
+    padding: 0 20px;
+  }
+  .fallbackWord {
+    font-size: clamp(48px, 12vw, 72px);
+    letter-spacing: -2px;
+  }
+  .viewButton {
+    min-width: 196px;
+    min-height: 52px;
+    font-size: 14px;
+  }
+  .projectArrow {
+    top: auto;
+    bottom: 9svh;
+    transform: none;
+    width: 44px;
+    height: 44px;
+  }
+  .projectArrow svg {
+    width: 28px;
+  }
+  .previousProject {
+    left: 12px;
+  }
+  .nextProject {
+    right: 12px;
+  }
+  .projectTabs {
+    bottom: 9svh;
+    gap: 17px;
+  }
+  .projectTabs button {
+    font-size: 9px;
+  }
+  .projectTabs button span {
+    display: none;
+  }
+  .isOpen .heading {
+    top: 8svh;
+  }
+  .detailStage {
+    height: 74svh;
+    margin-top: 25px;
+  }
+  .detailBar {
+    font-size: 8px;
+  }
+  .backButton span {
+    margin-left: 6px;
+  }
+  .introduction {
+    min-height: 108px;
+    padding: 14px 0 10px;
+  }
+  .introduction h3 {
+    font-size: 22px;
+  }
+  .introduction p {
+    font-size: 9px;
+  }
+  .isOpen .projectTabs {
+    bottom: 5svh;
+  }
+}
+@media (max-height: 650px) and (min-width: 768px) {
+  .heading {
+    top: 8svh;
+  }
+  .heading h2 {
+    font-size: 28px;
+  }
+  .projectTabs {
+    bottom: 5svh;
+  }
+  .detailStage {
+    height: 77svh;
+  }
+  .isOpen .heading {
+    top: 3svh;
+  }
+  .isOpen .heading h2 {
+    font-size: 23px;
+  }
+  .introduction {
+    min-height: 60px;
+    padding: 8px 0;
+  }
+  .introduction h3 {
+    font-size: 21px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .showcase button {
+    transition: none;
+  }
+  .viewButton:hover {
+    transform: none;
+  }
+}
+
+/* The homepage amber connects project actions to the portfolio brand. */
+.showcase {
+  --project-accent: var(--color-accent, #f59e0b);
+}
+.viewButton {
+  background: var(--project-accent);
+  border-color: #ffd58a;
+  color: #172d42;
+  box-shadow: 0 5px 25px #b46b1430;
+}
+.viewButton:hover {
+  background: #fbbf24;
+}
+.projectTabs .selectedTab {
+  color: var(--project-accent);
+  border-bottom-color: var(--project-accent);
+}
+.projectTabs button:hover,
+.projectArrow:hover {
+  color: var(--project-accent);
+}
+.showcase button:focus-visible,
+.showcase a:focus-visible {
+  outline-color: var(--project-accent);
+}
