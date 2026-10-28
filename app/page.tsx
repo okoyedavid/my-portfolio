@@ -6,7 +6,7 @@ import SelectedWork from "@/components/home/SelectedWork";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "David Okoye | Full-Stack TypeScript Developer",
+  title: "David Okoye | Full Stack Developer",
   alternates: { canonical: "/" },
 };
 

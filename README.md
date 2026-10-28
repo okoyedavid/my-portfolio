@@ -71,3 +71,17 @@ I am open to frontend, full-stack TypeScript, and graduate software-engineering 
 - [Email](mailto:okoyedav7@gmail.com)
 - [LinkedIn](https://www.linkedin.com/in/okoyedavid7)
 - [GitHub](https://github.com/okoyedavid)
+
+## Mountain and rings scroll demo
+
+Open `/demo`: “Hi there,” → “My name is David Okoye” → “Let’s take you for a trip” → three ice portals.
+
+- `components/ScrollParallaxScene.tsx` retains the mountain parallax and cloud-mask name reveal. The wireframe opening is no longer mounted.
+- `components/PageTopSpacer.tsx` removes the unused header reservation on this immersive route.
+- `components/RingsScrollJourney.tsx` pins the invitation and maps scroll progress to the camera passage. Scroll backwards to reverse it.
+- `components/RingsTripViewport.jsx` and `components/demo/OriginalMotionViewport.jsx` mount the preserved renderer directly, without inspector controls or an iframe.
+- `lib/demo-motion/` owns the animation controller, amber palette and custom project-particle integration.
+- `public/igloo-runtime/assets/` retains the required original renderer, geometry, textures, fonts and decoder dependencies.
+- The former nested Igloo project, the `/assets` experiment and the static workflow reference were removed after consolidation. Publication and attribution notes are retained in `docs/demo-animation/publication-notes.md`.
+
+The ring canvas loads as its section approaches and uses the saved original engine's shaders, camera curves, smoke, distortion and bloom. GPU rendering pauses while the viewport is offscreen. Reduced-motion mode shows a static camera pose and a shorter scroll section. The invitation, skip link, keyboard navigation and return-to-portfolio link remain usable.

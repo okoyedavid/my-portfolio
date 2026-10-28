@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "David Okoye",
   firstName: "David",
-  role: "Full-Stack TypeScript Developer",
-  shortRole: "Full-Stack TypeScript Developer",
+  role: "Full Stack Developer",
+  shortRole: "Full Stack Developer",
   email: "okoyedav7@gmail.com",
   emailHref: "mailto:okoyedav7@gmail.com",
   phone: "(+234) 916 380 8118",
@@ -12,10 +12,10 @@ export const siteConfig = {
   linkedin: "https://www.linkedin.com/in/okoyedavid7",
   resume: "/Resume.pdf",
   seoDescription:
-    "Portfolio of David Okoye, a full-stack TypeScript developer building React, Next.js and Node.js applications, secure account systems, multi-tenant APIs and SaaS workflows.",
+    "Portfolio of David Okoye, a full stack developer building React, Next.js and Node.js applications, secure account systems, multi-tenant APIs and SaaS workflows.",
   keywords: [
     "David Okoye",
-    "Full-Stack TypeScript Developer",
+    "Full Stack Developer",
     "React Developer",
     "Next.js Developer",
     "TypeScript Developer",

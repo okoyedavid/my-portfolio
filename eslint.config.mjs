@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored renderer/decoders and the preserved static reference.
+    "public/igloo-runtime/**",
+    "public/ring-assets/**",
+    "scroll effect/**",
   ]),
 ]);
 
